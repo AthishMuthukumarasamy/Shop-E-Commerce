@@ -1,7 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\2026\\C_Sharp\\Final Project [Team-A]\\Shopp E-Commerce\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{502F8B62-B900-4404-993D-A73095C2E39D}|Shopp E-Commerce\\Shopp E-Commerce.csproj|c:\\2026\\c_sharp\\final project [team-a]\\shopp e-commerce\\shopp e-commerce\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{502F8B62-B900-4404-993D-A73095C2E39D}|Shopp E-Commerce\\Shopp E-Commerce.csproj|solutionrelative:shopp e-commerce\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -18,6 +23,19 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\2026\\C_Sharp\\Final Project [Team-A]\\Shopp E-Commerce\\Shopp E-Commerce\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "Shopp E-Commerce\\Models\\Product.cs",
+              "ToolTip": "C:\\2026\\C_Sharp\\Final Project [Team-A]\\Shopp E-Commerce\\Shopp E-Commerce\\Models\\Product.cs",
+              "RelativeToolTip": "Shopp E-Commerce\\Models\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-10T05:27:17.155Z",
+              "EditorCaption": ""
             }
           ]
         }
