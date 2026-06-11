@@ -57,5 +57,61 @@ namespace ShopSphere.Controllers
 
             return RedirectToAction("Index");
         }
+        public IActionResult RemoveFromCart(int id)
+        {
+            var cart = HttpContext.Session
+                .GetObjectFromJson<List<CartItem>>("Cart")
+                ?? new List<CartItem>();
+
+            var item = cart.FirstOrDefault(x => x.ProductId == id);
+
+            if (item != null)
+            {
+                cart.Remove(item);
+            }
+
+            HttpContext.Session.SetObjectAsJson("Cart", cart);
+
+            return RedirectToAction("Index");
+        }
+        public IActionResult IncreaseQuantity(int id)
+        {
+            var cart = HttpContext.Session
+                .GetObjectFromJson<List<CartItem>>("Cart")
+                ?? new List<CartItem>();
+
+            var item = cart.FirstOrDefault(x => x.ProductId == id);
+
+            if (item != null)
+            {
+                item.Quantity++;
+            }
+
+            HttpContext.Session.SetObjectAsJson("Cart", cart);
+
+            return RedirectToAction("Index");
+        }
+        public IActionResult DecreaseQuantity(int id)
+        {
+            var cart = HttpContext.Session
+                .GetObjectFromJson<List<CartItem>>("Cart")
+                ?? new List<CartItem>();
+
+            var item = cart.FirstOrDefault(x => x.ProductId == id);
+
+            if (item != null)
+            {
+                item.Quantity--;
+
+                if (item.Quantity <= 0)
+                {
+                    cart.Remove(item);
+                }
+            }
+
+            HttpContext.Session.SetObjectAsJson("Cart", cart);
+
+            return RedirectToAction("Index");
+        }
     }
 }

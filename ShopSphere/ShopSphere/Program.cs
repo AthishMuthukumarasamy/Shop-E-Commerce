@@ -1,4 +1,5 @@
 using ShopSphere.Data;
+using ShopSphere.DatabaseModels;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,9 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 // Database connection
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(
-        builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<ShoppDbContext>(options =>
+options.UseSqlServer(
+builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Session services
 builder.Services.AddDistributedMemoryCache();
@@ -41,7 +42,7 @@ app.UseSession();
 app.UseAuthorization();
 
 app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+name: "default",
+pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

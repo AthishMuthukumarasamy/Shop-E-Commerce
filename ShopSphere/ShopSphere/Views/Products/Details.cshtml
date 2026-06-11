@@ -1,42 +1,49 @@
-﻿@model ShopSphere.Models.Product
+﻿@model ShopSphere.DatabaseModels.Product
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Product Details";
+    var image = Model.ProductImages.FirstOrDefault(i => i.IsPrimary == true);
 }
 
-<h1>Details</h1>
+<h2>@Model.ProductName</h2>
 
-<div>
-    <h4>Product</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ImageUrl)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ImageUrl)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div class="row">
+
+    <div class="col-md-5">
+
+        @if (image != null)
+        {
+            <img src="@image.ImageUrl"
+                 class="img-fluid rounded shadow" />
+        }
+
+    </div>
+
+    <div class="col-md-7">
+
+        <h4 class="text-success">
+            ₹@Model.Price
+        </h4>
+
+        <p>
+            @Model.Description
+        </p>
+
+        <p>
+            <strong>Category:</strong>
+            @Model.Category.CategoryName
+        </p>
+
+        <p>
+            <strong>Brand:</strong>
+            @Model.Brand.BrandName
+        </p>
+
+        <p>
+            <strong>Stock:</strong>
+            @Model.Stock
+        </p>
+
+    </div>
+
 </div>

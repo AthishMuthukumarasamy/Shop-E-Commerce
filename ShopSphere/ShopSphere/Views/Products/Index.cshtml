@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ShopSphere.Models.Product>
+﻿@model IEnumerable<ShopSphere.DatabaseModels.Product>
 
 <h1 class="text-center mb-4">Products</h1>
 
@@ -6,10 +6,23 @@
 
     @foreach (var item in Model)
     {
+        var image = item.ProductImages.FirstOrDefault(i => i.IsPrimary == true);
+
         <div class="col-md-4 mb-4">
+
             <div class="card shadow h-100">
+
+                @if (image != null)
+                {
+                    <img src="@image.ImageUrl"
+                         class="card-img-top"
+                         height="250"
+                         style="object-fit:cover" />
+                }
+
                 <div class="card-body">
-                    <h4>@item.Name</h4>
+
+                    <h4>@item.ProductName</h4>
 
                     <p>@item.Description</p>
 
@@ -17,20 +30,20 @@
                         ₹@item.Price
                     </h5>
 
+                    <p>
+                        Stock : @item.Stock
+                    </p>
+
                     <a asp-action="Details"
-                       asp-route-id="@item.Id"
+                       asp-route-id="@item.ProductId"
                        class="btn btn-primary">
                         View Details
                     </a>
 
-                    <a asp-controller="Cart"
-                       asp-action="AddToCart"
-                       asp-route-id="@item.Id"
-                       class="btn btn-success">
-                        Add To Cart 🛒
-                    </a>
                 </div>
+
             </div>
+
         </div>
     }
 
