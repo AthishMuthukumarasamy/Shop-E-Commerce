@@ -19,6 +19,8 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-color: floralwhite;
+
 }
 
 .card {
@@ -40,3 +42,4 @@ body {
 .bg-light {
     background: linear-gradient(to right, #f8f9fa, #ffffff);
 }
+
