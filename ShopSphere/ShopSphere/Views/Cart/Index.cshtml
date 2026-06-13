@@ -1,8 +1,8 @@
 ﻿@model ShopSphere.DatabaseModels.Cart
 
-<h2>Your Cart </h2>
+<h1>Shopping Cart 🛒</h1>
 
-@if (Model.CartItems == null || !Model.CartItems.Any())
+@if (Model == null || Model.CartItems == null || !Model.CartItems.Any())
 {
     <p>Your cart is empty.</p>
 }
@@ -10,43 +10,82 @@ else
 {
     decimal grandTotal = 0;
 
-    <table class="table table-bordered">
-        <thead>
+    <table class="table table-bordered table-striped">
+
+        <thead class="table-dark">
             <tr>
                 <th>Product</th>
                 <th>Price</th>
-                <th>Qty</th>
+                <th>Quantity</th>
                 <th>Total</th>
-                <th>Action</th>
+                <th>Actions</th>
             </tr>
         </thead>
 
         <tbody>
+
             @foreach (var item in Model.CartItems)
             {
-                var total = item.UnitPrice * item.Quantity;
+                decimal total = item.UnitPrice * item.Quantity;
                 grandTotal += total;
 
                 <tr>
-                    <td>@item.Product.ProductName</td>
-                    <td>@item.UnitPrice</td>
                     <td>
-                        <a asp-action="Decrease" asp-route-id="@item.CartItemId">-</a>
-                        @item.Quantity
-                        <a asp-action="Increase" asp-route-id="@item.CartItemId">+</a>
+                        @item.Product?.ProductName
                     </td>
-                    <td>@total</td>
+
                     <td>
-                        <a asp-action="Remove" asp-route-id="@item.CartItemId">Remove</a>
+                        ₹@item.UnitPrice
+                    </td>
+
+                    <td>
+                        <a asp-action="Decrease"
+                           asp-route-id="@item.CartItemId"
+                           class="btn btn-warning btn-sm">-</a>
+
+                        <span class="mx-2">@item.Quantity</span>
+
+                        <a asp-action="Increase"
+                           asp-route-id="@item.CartItemId"
+                           class="btn btn-success btn-sm">+</a>
+                    </td>
+
+                    <td>
+                        ₹@total
+                    </td>
+
+                    <td>
+                        <a asp-action="Remove"
+                           asp-route-id="@item.CartItemId"
+                           class="btn btn-danger btn-sm">
+                            Remove
+                        </a>
                     </td>
                 </tr>
             }
+
         </tbody>
     </table>
 
-    <h3>Total: @grandTotal</h3>
+    <div class="text-end">
+        <h3 class="text-success">
+            Grand Total: ₹@grandTotal
+        </h3>
+    </div>
 
-    <a asp-controller="Order" asp-action="PlaceOrder" class="btn btn-success">
-        Checkout
-    </a>
+    <div class="mt-3 text-end">
+
+        <a asp-controller="Products"
+           asp-action="Index"
+           class="btn btn-primary">
+            Continue Shopping
+        </a>
+
+        <a asp-controller="Order"
+           asp-action="PlaceOrder"
+           class="btn btn-success">
+            Checkout
+        </a>
+
+    </div>
 }

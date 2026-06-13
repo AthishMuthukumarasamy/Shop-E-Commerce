@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{FF90EFBD-42D2-47B0-94E5-5E15DDC32BCF}|ShopSphere\\ShopSphere.csproj|c:\\users\\poornimadevig\\onedrive - infinite computer solutions (india) limited\\documents\\shopsphere\\shopsphere\\shopsphere\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FF90EFBD-42D2-47B0-94E5-5E15DDC32BCF}|ShopSphere\\ShopSphere.csproj|solutionrelative:shopsphere\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FF90EFBD-42D2-47B0-94E5-5E15DDC32BCF}|ShopSphere\\ShopSphere.csproj|c:\\users\\poornimadevig\\onedrive - infinite computer solutions (india) limited\\documents\\shopsphere\\shopsphere\\shopsphere\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FF90EFBD-42D2-47B0-94E5-5E15DDC32BCF}|ShopSphere\\ShopSphere.csproj|solutionrelative:shopsphere\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -166,11 +170,28 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\Views\\Cart\\Index.cshtml",
+              "RelativeDocumentMoniker": "ShopSphere\\Views\\Cart\\Index.cshtml",
+              "ToolTip": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\Views\\Cart\\Index.cshtml",
+              "RelativeToolTip": "ShopSphere\\Views\\Cart\\Index.cshtml",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAwwFoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-13T07:44:49.701Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "CartController.cs",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\Controllers\\CartController.cs",
               "RelativeDocumentMoniker": "ShopSphere\\Controllers\\CartController.cs",
@@ -183,24 +204,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ShopSphere",
+              "DocumentIndex": 3,
+              "Title": "ShopSphere.csproj",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\ShopSphere.csproj",
               "RelativeDocumentMoniker": "ShopSphere\\ShopSphere.csproj",
               "ToolTip": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\ShopSphere.csproj",
               "RelativeToolTip": "ShopSphere\\ShopSphere.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-06-13T07:33:59.545Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+              "WhenOpened": "2026-06-13T07:33:59.545Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\Views\\Admin\\Delete.cshtml",
               "RelativeDocumentMoniker": "ShopSphere\\Views\\Admin\\Delete.cshtml",
@@ -208,12 +224,11 @@
               "RelativeToolTip": "ShopSphere\\Views\\Admin\\Delete.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-13T07:17:49.238Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-13T07:17:49.238Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\Views\\Admin\\Details.cshtml",
               "RelativeDocumentMoniker": "ShopSphere\\Views\\Admin\\Details.cshtml",
@@ -221,12 +236,11 @@
               "RelativeToolTip": "ShopSphere\\Views\\Admin\\Details.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-13T07:17:35.26Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-13T07:17:35.26Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\Views\\Admin\\Create.cshtml",
               "RelativeDocumentMoniker": "ShopSphere\\Views\\Admin\\Create.cshtml",
@@ -234,12 +248,11 @@
               "RelativeToolTip": "ShopSphere\\Views\\Admin\\Create.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-13T07:17:04.243Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-13T07:17:04.243Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\Views\\Retailer\\Create.cshtml",
               "RelativeDocumentMoniker": "ShopSphere\\Views\\Retailer\\Create.cshtml",
@@ -247,12 +260,11 @@
               "RelativeToolTip": "ShopSphere\\Views\\Retailer\\Create.cshtml",
               "ViewState": "AgIAAAIAAAAAAAAAAAAIwBQAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-13T06:56:41.828Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-13T06:56:41.828Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\Views\\Admin\\Index.cshtml",
               "RelativeDocumentMoniker": "ShopSphere\\Views\\Admin\\Index.cshtml",
@@ -260,12 +272,11 @@
               "RelativeToolTip": "ShopSphere\\Views\\Admin\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-13T07:16:48.845Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-13T07:16:48.845Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\Views\\Admin\\Edit.cshtml",
               "RelativeDocumentMoniker": "ShopSphere\\Views\\Admin\\Edit.cshtml",
@@ -273,12 +284,11 @@
               "RelativeToolTip": "ShopSphere\\Views\\Admin\\Edit.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-13T07:17:20.943Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-13T07:17:20.943Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "MyProducts.cshtml",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\Views\\Retailer\\MyProducts.cshtml",
               "RelativeDocumentMoniker": "ShopSphere\\Views\\Retailer\\MyProducts.cshtml",
@@ -286,12 +296,11 @@
               "RelativeToolTip": "ShopSphere\\Views\\Retailer\\MyProducts.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-13T07:07:40.435Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-13T07:07:40.435Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\Views\\Retailer\\Details.cshtml",
               "RelativeDocumentMoniker": "ShopSphere\\Views\\Retailer\\Details.cshtml",
@@ -299,12 +308,11 @@
               "RelativeToolTip": "ShopSphere\\Views\\Retailer\\Details.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-13T06:56:23.674Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-13T06:56:23.674Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "ShopSphere\\Controllers\\AccountController.cs",
@@ -312,12 +320,11 @@
               "RelativeToolTip": "ShopSphere\\Controllers\\AccountController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-13T05:21:32.944Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-13T05:21:32.944Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "AdminController.cs",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\Controllers\\AdminController.cs",
               "RelativeDocumentMoniker": "ShopSphere\\Controllers\\AdminController.cs",
@@ -325,12 +332,11 @@
               "RelativeToolTip": "ShopSphere\\Controllers\\AdminController.cs",
               "ViewState": "AgIAAFwAAAAAAAAAAAAAAGUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-13T06:18:05.724Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-13T06:18:05.724Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\Views\\Retailer\\Index.cshtml",
               "RelativeDocumentMoniker": "ShopSphere\\Views\\Retailer\\Index.cshtml",
@@ -338,12 +344,11 @@
               "RelativeToolTip": "ShopSphere\\Views\\Retailer\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-13T06:56:06.886Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-13T06:56:06.886Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\Views\\Retailer\\Delete.cshtml",
               "RelativeDocumentMoniker": "ShopSphere\\Views\\Retailer\\Delete.cshtml",
@@ -351,12 +356,11 @@
               "RelativeToolTip": "ShopSphere\\Views\\Retailer\\Delete.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-13T06:57:11.698Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-13T06:57:11.698Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "RetailerController.cs",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\Controllers\\RetailerController.cs",
               "RelativeDocumentMoniker": "ShopSphere\\Controllers\\RetailerController.cs",
@@ -364,12 +368,11 @@
               "RelativeToolTip": "ShopSphere\\Controllers\\RetailerController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAJAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-13T06:52:38.239Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-13T06:52:38.239Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\Views\\Products\\Index.cshtml",
               "RelativeDocumentMoniker": "ShopSphere\\Views\\Products\\Index.cshtml",
@@ -377,12 +380,11 @@
               "RelativeToolTip": "ShopSphere\\Views\\Products\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-11T06:57:54.802Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-11T06:57:54.802Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\Views\\Products\\Details.cshtml",
               "RelativeDocumentMoniker": "ShopSphere\\Views\\Products\\Details.cshtml",
@@ -390,12 +392,11 @@
               "RelativeToolTip": "ShopSphere\\Views\\Products\\Details.cshtml",
               "ViewState": "AgIAABoAAAAAAAAAAAAIwCoAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-11T06:57:54.732Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-11T06:57:54.732Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "CheckOutController.cs",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\Controllers\\CheckOutController.cs",
               "RelativeDocumentMoniker": "ShopSphere\\Controllers\\CheckOutController.cs",
@@ -403,12 +404,11 @@
               "RelativeToolTip": "ShopSphere\\Controllers\\CheckOutController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-13T06:31:03.842Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-13T06:31:03.842Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "ReviewController.cs",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\Controllers\\ReviewController.cs",
               "RelativeDocumentMoniker": "ShopSphere\\Controllers\\ReviewController.cs",
@@ -416,12 +416,11 @@
               "RelativeToolTip": "ShopSphere\\Controllers\\ReviewController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-13T06:26:20.751Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-13T06:26:20.751Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "CompareController.cs",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\Controllers\\CompareController.cs",
               "RelativeDocumentMoniker": "ShopSphere\\Controllers\\CompareController.cs",
@@ -429,12 +428,11 @@
               "RelativeToolTip": "ShopSphere\\Controllers\\CompareController.cs",
               "ViewState": "AgIAAEoAAAAAAAAAAAAIwA8AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-13T06:25:02.069Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-13T06:25:02.069Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "WhislistController.cs",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\Controllers\\WhislistController.cs",
               "RelativeDocumentMoniker": "ShopSphere\\Controllers\\WhislistController.cs",
@@ -442,12 +440,11 @@
               "RelativeToolTip": "ShopSphere\\Controllers\\WhislistController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-13T06:21:04.611Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-13T06:21:04.611Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "CartItem.cs",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\DatabaseModels\\CartItem.cs",
               "RelativeDocumentMoniker": "ShopSphere\\DatabaseModels\\CartItem.cs",
@@ -455,12 +452,11 @@
               "RelativeToolTip": "ShopSphere\\DatabaseModels\\CartItem.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-13T06:08:08.854Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-13T06:08:08.854Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "OrderController.cs",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\Controllers\\OrderController.cs",
               "RelativeDocumentMoniker": "ShopSphere\\Controllers\\OrderController.cs",
@@ -468,12 +464,11 @@
               "RelativeToolTip": "ShopSphere\\Controllers\\OrderController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-13T05:26:37.87Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-13T05:26:37.87Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "PaymentController.cs",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\Controllers\\PaymentController.cs",
               "RelativeDocumentMoniker": "ShopSphere\\Controllers\\PaymentController.cs",
@@ -481,12 +476,11 @@
               "RelativeToolTip": "ShopSphere\\Controllers\\PaymentController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-13T05:29:00.258Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-13T05:29:00.258Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\DatabaseModels\\User.cs",
               "RelativeDocumentMoniker": "ShopSphere\\DatabaseModels\\User.cs",
@@ -494,12 +488,11 @@
               "RelativeToolTip": "ShopSphere\\DatabaseModels\\User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-13T05:32:26.843Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-13T05:32:26.843Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "ShoppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\DatabaseModels\\ShoppDbContext.cs",
               "RelativeDocumentMoniker": "ShopSphere\\DatabaseModels\\ShoppDbContext.cs",
@@ -507,12 +500,11 @@
               "RelativeToolTip": "ShopSphere\\DatabaseModels\\ShoppDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAF8BAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-11T06:57:54.795Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-11T06:57:54.795Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "Category.cs",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\DatabaseModels\\Category.cs",
               "RelativeDocumentMoniker": "ShopSphere\\DatabaseModels\\Category.cs",
@@ -520,12 +512,11 @@
               "RelativeToolTip": "ShopSphere\\DatabaseModels\\Category.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-11T06:57:54.785Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-11T06:57:54.785Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "Brand.cs",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\DatabaseModels\\Brand.cs",
               "RelativeDocumentMoniker": "ShopSphere\\DatabaseModels\\Brand.cs",
@@ -533,12 +524,11 @@
               "RelativeToolTip": "ShopSphere\\DatabaseModels\\Brand.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-11T06:57:54.781Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-11T06:57:54.781Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "ProductController.cs",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "ShopSphere\\Controllers\\ProductController.cs",
@@ -546,12 +536,11 @@
               "RelativeToolTip": "ShopSphere\\Controllers\\ProductController.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAQwB8AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-13T05:00:31.915Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-13T05:00:31.915Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "Payment.cs",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\DatabaseModels\\Payment.cs",
               "RelativeDocumentMoniker": "ShopSphere\\DatabaseModels\\Payment.cs",
@@ -559,12 +548,11 @@
               "RelativeToolTip": "ShopSphere\\DatabaseModels\\Payment.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-13T05:28:03.982Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-13T05:28:03.982Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "OrderDetail.cs",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\DatabaseModels\\OrderDetail.cs",
               "RelativeDocumentMoniker": "ShopSphere\\DatabaseModels\\OrderDetail.cs",
@@ -572,12 +560,11 @@
               "RelativeToolTip": "ShopSphere\\DatabaseModels\\OrderDetail.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-13T05:25:45.284Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-13T05:25:45.284Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "Otp.cs",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\DatabaseModels\\Otp.cs",
               "RelativeDocumentMoniker": "ShopSphere\\DatabaseModels\\Otp.cs",
@@ -585,12 +572,11 @@
               "RelativeToolTip": "ShopSphere\\DatabaseModels\\Otp.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-13T05:23:19.78Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-13T05:23:19.78Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "ProductImage.cs",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\DatabaseModels\\ProductImage.cs",
               "RelativeDocumentMoniker": "ShopSphere\\DatabaseModels\\ProductImage.cs",
@@ -602,7 +588,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "site.css",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "ShopSphere\\wwwroot\\css\\site.css",
@@ -614,7 +600,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 36,
               "Title": "Product.cs",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\DatabaseModels\\Product.cs",
               "RelativeDocumentMoniker": "ShopSphere\\DatabaseModels\\Product.cs",
@@ -626,7 +612,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 37,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "ShopSphere\\Views\\Shared\\_Layout.cshtml",
@@ -638,7 +624,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 38,
               "Title": "CartItem.cs",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\Models\\CartItem.cs",
               "RelativeDocumentMoniker": "ShopSphere\\Models\\CartItem.cs",
@@ -650,7 +636,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 39,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "ShopSphere\\Views\\Home\\Index.cshtml",
@@ -662,7 +648,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 35,
               "Title": "Product.cs",
               "DocumentMoniker": "C:\\Users\\poornimadevig\\OneDrive - Infinite Computer Solutions (India) Limited\\Documents\\ShopSphere\\ShopSphere\\ShopSphere\\Models\\Product.cs",
               "RelativeDocumentMoniker": "ShopSphere\\Models\\Product.cs",
