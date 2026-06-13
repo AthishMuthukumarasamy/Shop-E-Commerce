@@ -1,0 +1,17 @@
+﻿@model ShopSphere.DatabaseModels.Product
+
+<h2>Edit Product</h2>
+
+<form asp-action="Edit" method="post">
+
+    <input type="hidden" asp-for="ProductId" />
+
+    <input asp-for="ProductName" class="form-control" />
+
+    <input asp-for="Price" class="form-control mt-2" />
+
+    <input asp-for="Status" class="form-control mt-2" />
+
+    <button type="submit" class="btn btn-primary mt-3">Update</button>
+
+</form>

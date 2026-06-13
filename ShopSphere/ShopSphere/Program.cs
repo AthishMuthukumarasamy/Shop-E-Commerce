@@ -1,18 +1,25 @@
-using ShopSphere.Data;
 using ShopSphere.DatabaseModels;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+
+// MVC SERVICES
+
 builder.Services.AddControllersWithViews();
 
-// Database connection
-builder.Services.AddDbContext<ShoppDbContext>(options =>
-options.UseSqlServer(
-builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Session services
+// DATABASE (ShoppDbContext ONLY)
+
+builder.Services.AddDbContext<ShoppDbContext>(options =>
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("DefaultConnection")
+    )
+);
+
+
+// SESSION CONFIGURATION
+
 builder.Services.AddDistributedMemoryCache();
 
 builder.Services.AddSession(options =>
@@ -24,7 +31,9 @@ builder.Services.AddSession(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
+// PIPELINE CONFIG
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -36,13 +45,16 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-// Enable Session
+// IMPORTANT: SESSION MUST BE BEFORE AUTH
 app.UseSession();
 
 app.UseAuthorization();
 
+
+// DEFAULT ROUTE
 app.MapControllerRoute(
-name: "default",
-pattern: "{controller=Home}/{action=Index}/{id?}");
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}"
+);
 
 app.Run();

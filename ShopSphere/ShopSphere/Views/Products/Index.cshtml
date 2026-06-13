@@ -1,47 +1,53 @@
 ﻿@model IEnumerable<ShopSphere.DatabaseModels.Product>
 
-<h1 class="text-center mb-4">Products</h1>
+<h2 class="mb-4">Our Products </h2>
 
 <div class="row">
 
     @foreach (var item in Model)
     {
-        var image = item.ProductImages.FirstOrDefault(i => i.IsPrimary == true);
+        <div class="col-md-3 mb-4">
 
-        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
 
-            <div class="card shadow h-100">
-
-                @if (image != null)
-                {
-                    <img src="@image.ImageUrl"
-                         class="card-img-top"
-                         height="250"
-                         style="object-fit:cover" />
-                }
+                <img src="@item.ProductImages.FirstOrDefault()?.ImageUrl"
+                     class="card-img-top"
+                     style="height:200px; object-fit:cover;" />
 
                 <div class="card-body">
 
-                    <h4>@item.ProductName</h4>
-
-                    <p>@item.Description</p>
-
-                    <h5 class="text-success">
-                        ₹@item.Price
+                    <h5 class="card-title">
+                        @item.ProductName
                     </h5>
 
-                    <p>
-                        Stock : @item.Stock
+                    <p class="text-success fw-bold">
+                        ₹@item.Price
                     </p>
 
-                    <a asp-action="Details"
-                       asp-route-id="@item.ProductId"
-                       class="btn btn-primary">
-                        View Details
-                    </a>
+                    <p class="text-muted">
+                        @(item.Description?.Length > 50
+                            ? item.Description.Substring(0, 50) + "..."
+                            : item.Description)
+                    </p>
+
+                    <div class="d-flex justify-content-between">
+
+                        <a asp-action="Details"
+                           asp-route-id="@item.ProductId"
+                           class="btn btn-info btn-sm">
+                            View
+                        </a>
+
+                        <a asp-controller="Cart"
+                           asp-action="AddToCart"
+                           asp-route-productId="@item.ProductId"
+                           class="btn btn-success btn-sm">
+                            Add 
+                        </a>
+
+                    </div>
 
                 </div>
-
             </div>
 
         </div>

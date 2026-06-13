@@ -1,115 +1,155 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ShopSphere.Data;
-using ShopSphere.Extensions;
-using ShopSphere.Models;
+using Microsoft.EntityFrameworkCore;
+using ShopSphere.DatabaseModels;
 
 namespace ShopSphere.Controllers
 {
     public class CartController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ShoppDbContext _context;
 
-        public CartController(ApplicationDbContext context)
+        public CartController(ShoppDbContext context)
         {
             _context = context;
         }
 
+        
+        // GET CART PAGE
+        
         public IActionResult Index()
         {
-            var cart = HttpContext.Session
-                .GetObjectFromJson<List<CartItem>>("Cart")
-                ?? new List<CartItem>();
+            int userId = HttpContext.Session.GetInt32("UserId") ?? 0;
+
+            if (userId == 0)
+                return RedirectToAction("Login", "Account");
+
+            var cart = _context.Carts
+                .Include(c => c.CartItems)
+                    .ThenInclude(ci => ci.Product)
+                .FirstOrDefault(c => c.UserId == userId);
+
+            if (cart == null)
+            {
+                cart = new Cart
+                {
+                    UserId = userId,
+                    CartItems = new List<CartItem>()
+                };
+            }
 
             return View(cart);
         }
 
-        public IActionResult AddToCart(int id)
+        // ADD TO CART
+       
+        public IActionResult AddToCart(int productId)
         {
-            var product = _context.Products.Find(id);
+            int userId = HttpContext.Session.GetInt32("UserId") ?? 0;
+
+            if (userId == 0)
+                return RedirectToAction("Login", "Account");
+
+            var product = _context.Products
+                .FirstOrDefault(p => p.ProductId == productId);
 
             if (product == null)
-            {
                 return NotFound();
+
+            // Get or create cart
+            var cart = _context.Carts
+                .FirstOrDefault(c => c.UserId == userId);
+
+            if (cart == null)
+            {
+                cart = new Cart
+                {
+                    UserId = userId,
+                    CreatedDate = DateTime.Now
+                };
+
+                _context.Carts.Add(cart);
+                _context.SaveChanges();
             }
 
-            var cart = HttpContext.Session
-                .GetObjectFromJson<List<CartItem>>("Cart")
-                ?? new List<CartItem>();
+            // Check existing item
+            var cartItem = _context.CartItems
+                .FirstOrDefault(ci =>
+                    ci.CartId == cart.CartId &&
+                    ci.ProductId == productId);
 
-            var existingItem = cart.FirstOrDefault(x => x.ProductId == id);
-
-            if (existingItem != null)
+            if (cartItem != null)
             {
-                existingItem.Quantity++;
+                cartItem.Quantity++;
             }
             else
             {
-                cart.Add(new CartItem
+                cartItem = new CartItem
                 {
-                    ProductId = product.Id,
-                    ProductName = product.Name,
-                    Price = product.Price,
-                    Quantity = 1
-                });
+                    CartId = cart.CartId,
+                    ProductId = product.ProductId,
+                    Quantity = 1,
+                    UnitPrice = product.Price
+                };
+
+                _context.CartItems.Add(cartItem);
             }
 
-            HttpContext.Session.SetObjectAsJson("Cart", cart);
+            _context.SaveChanges();
 
             return RedirectToAction("Index");
         }
-        public IActionResult RemoveFromCart(int id)
-        {
-            var cart = HttpContext.Session
-                .GetObjectFromJson<List<CartItem>>("Cart")
-                ?? new List<CartItem>();
 
-            var item = cart.FirstOrDefault(x => x.ProductId == id);
+        
+        // REMOVE ITEM
+       
+        public IActionResult Remove(int id)
+        {
+            var item = _context.CartItems
+                .FirstOrDefault(x => x.CartItemId == id);
 
             if (item != null)
             {
-                cart.Remove(item);
+                _context.CartItems.Remove(item);
+                _context.SaveChanges();
             }
-
-            HttpContext.Session.SetObjectAsJson("Cart", cart);
 
             return RedirectToAction("Index");
         }
-        public IActionResult IncreaseQuantity(int id)
-        {
-            var cart = HttpContext.Session
-                .GetObjectFromJson<List<CartItem>>("Cart")
-                ?? new List<CartItem>();
 
-            var item = cart.FirstOrDefault(x => x.ProductId == id);
+     
+        // INCREASE QTY
+       
+        public IActionResult Increase(int id)
+        {
+            var item = _context.CartItems
+                .FirstOrDefault(x => x.CartItemId == id);
 
             if (item != null)
             {
                 item.Quantity++;
+                _context.SaveChanges();
             }
-
-            HttpContext.Session.SetObjectAsJson("Cart", cart);
 
             return RedirectToAction("Index");
         }
-        public IActionResult DecreaseQuantity(int id)
-        {
-            var cart = HttpContext.Session
-                .GetObjectFromJson<List<CartItem>>("Cart")
-                ?? new List<CartItem>();
 
-            var item = cart.FirstOrDefault(x => x.ProductId == id);
+        
+        // DECREASE QTY
+        
+        public IActionResult Decrease(int id)
+        {
+            var item = _context.CartItems
+                .FirstOrDefault(x => x.CartItemId == id);
 
             if (item != null)
             {
                 item.Quantity--;
 
                 if (item.Quantity <= 0)
-                {
-                    cart.Remove(item);
-                }
-            }
+                    _context.CartItems.Remove(item);
 
-            HttpContext.Session.SetObjectAsJson("Cart", cart);
+                _context.SaveChanges();
+            }
 
             return RedirectToAction("Index");
         }

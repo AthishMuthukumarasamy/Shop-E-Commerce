@@ -15,67 +15,102 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v8.0
+build_property.EntryPointFilePath = 
 build_property.RootNamespace = ShopSphere
 build_property.RootNamespace = ShopSphere
-build_property.ProjectDir = C:\2026\C_Sharp\Final Project [Team-A]\ShopSphere\ShopSphere\
+build_property.ProjectDir = C:\Users\poornimadevig\OneDrive - Infinite Computer Solutions (India) Limited\Documents\ShopSphere\ShopSphere\ShopSphere\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\2026\C_Sharp\Final Project [Team-A]\ShopSphere\ShopSphere
+build_property.MSBuildProjectDirectory = C:\Users\poornimadevig\OneDrive - Infinite Computer Solutions (India) Limited\Documents\ShopSphere\ShopSphere\ShopSphere
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/2026/C_Sharp/Final Project \[Team-A\]/ShopSphere/ShopSphere/Views/Cart/Index.cshtml]
+[C:/Users/poornimadevig/OneDrive - Infinite Computer Solutions (India) Limited/Documents/ShopSphere/ShopSphere/ShopSphere/Views/Admin/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/poornimadevig/OneDrive - Infinite Computer Solutions (India) Limited/Documents/ShopSphere/ShopSphere/ShopSphere/Views/Admin/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/poornimadevig/OneDrive - Infinite Computer Solutions (India) Limited/Documents/ShopSphere/ShopSphere/ShopSphere/Views/Admin/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/poornimadevig/OneDrive - Infinite Computer Solutions (India) Limited/Documents/ShopSphere/ShopSphere/ShopSphere/Views/Admin/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/poornimadevig/OneDrive - Infinite Computer Solutions (India) Limited/Documents/ShopSphere/ShopSphere/ShopSphere/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/poornimadevig/OneDrive - Infinite Computer Solutions (India) Limited/Documents/ShopSphere/ShopSphere/ShopSphere/Views/Cart/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/2026/C_Sharp/Final Project \[Team-A\]/ShopSphere/ShopSphere/Views/Home/Index.cshtml]
+[C:/Users/poornimadevig/OneDrive - Infinite Computer Solutions (India) Limited/Documents/ShopSphere/ShopSphere/ShopSphere/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/2026/C_Sharp/Final Project \[Team-A\]/ShopSphere/ShopSphere/Views/Home/Privacy.cshtml]
+[C:/Users/poornimadevig/OneDrive - Infinite Computer Solutions (India) Limited/Documents/ShopSphere/ShopSphere/ShopSphere/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/2026/C_Sharp/Final Project \[Team-A\]/ShopSphere/ShopSphere/Views/Products/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcQ3JlYXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/2026/C_Sharp/Final Project \[Team-A\]/ShopSphere/ShopSphere/Views/Products/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRGVsZXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/2026/C_Sharp/Final Project \[Team-A\]/ShopSphere/ShopSphere/Views/Products/Details.cshtml]
+[C:/Users/poornimadevig/OneDrive - Infinite Computer Solutions (India) Limited/Documents/ShopSphere/ShopSphere/ShopSphere/Views/Products/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/2026/C_Sharp/Final Project \[Team-A\]/ShopSphere/ShopSphere/Views/Products/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRWRpdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/2026/C_Sharp/Final Project \[Team-A\]/ShopSphere/ShopSphere/Views/Products/Index.cshtml]
+[C:/Users/poornimadevig/OneDrive - Infinite Computer Solutions (India) Limited/Documents/ShopSphere/ShopSphere/ShopSphere/Views/Products/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/2026/C_Sharp/Final Project \[Team-A\]/ShopSphere/ShopSphere/Views/Shared/Error.cshtml]
+[C:/Users/poornimadevig/OneDrive - Infinite Computer Solutions (India) Limited/Documents/ShopSphere/ShopSphere/ShopSphere/Views/Retailer/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV0YWlsZXJcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/poornimadevig/OneDrive - Infinite Computer Solutions (India) Limited/Documents/ShopSphere/ShopSphere/ShopSphere/Views/Retailer/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV0YWlsZXJcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/poornimadevig/OneDrive - Infinite Computer Solutions (India) Limited/Documents/ShopSphere/ShopSphere/ShopSphere/Views/Retailer/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV0YWlsZXJcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/poornimadevig/OneDrive - Infinite Computer Solutions (India) Limited/Documents/ShopSphere/ShopSphere/ShopSphere/Views/Retailer/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV0YWlsZXJcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/poornimadevig/OneDrive - Infinite Computer Solutions (India) Limited/Documents/ShopSphere/ShopSphere/ShopSphere/Views/Retailer/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV0YWlsZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/poornimadevig/OneDrive - Infinite Computer Solutions (India) Limited/Documents/ShopSphere/ShopSphere/ShopSphere/Views/Retailer/MyProducts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV0YWlsZXJcTXlQcm9kdWN0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/poornimadevig/OneDrive - Infinite Computer Solutions (India) Limited/Documents/ShopSphere/ShopSphere/ShopSphere/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/2026/C_Sharp/Final Project \[Team-A\]/ShopSphere/ShopSphere/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/poornimadevig/OneDrive - Infinite Computer Solutions (India) Limited/Documents/ShopSphere/ShopSphere/ShopSphere/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/2026/C_Sharp/Final Project \[Team-A\]/ShopSphere/ShopSphere/Views/_ViewImports.cshtml]
+[C:/Users/poornimadevig/OneDrive - Infinite Computer Solutions (India) Limited/Documents/ShopSphere/ShopSphere/ShopSphere/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/2026/C_Sharp/Final Project \[Team-A\]/ShopSphere/ShopSphere/Views/_ViewStart.cshtml]
+[C:/Users/poornimadevig/OneDrive - Infinite Computer Solutions (India) Limited/Documents/ShopSphere/ShopSphere/ShopSphere/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/2026/C_Sharp/Final Project \[Team-A\]/ShopSphere/ShopSphere/Views/Shared/_Layout.cshtml]
+[C:/Users/poornimadevig/OneDrive - Infinite Computer Solutions (India) Limited/Documents/ShopSphere/ShopSphere/ShopSphere/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-5soo9f2tug
