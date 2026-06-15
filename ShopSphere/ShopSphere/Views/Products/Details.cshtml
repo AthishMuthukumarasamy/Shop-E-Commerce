@@ -32,7 +32,21 @@
            asp-action="AddToCart"
            asp-route-productId="@Model.ProductId"
            class="btn btn-success">
-            Add to Cart 🛒
+            Add to Cart
+        </a>
+
+        <a asp-controller="Wishlist"
+           asp-action="Add"
+           asp-route-productId="@Model.ProductId"
+           class="btn btn-outline-danger">
+            Add to Wishlist
+        </a>
+
+        <a asp-controller="Compare"
+           asp-action="Add"
+           asp-route-productId="@Model.ProductId"
+           class="btn btn-warning">
+            Compare Product
         </a>
 
         <a asp-action="Index"
