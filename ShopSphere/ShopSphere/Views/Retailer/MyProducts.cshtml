@@ -1,32 +1,55 @@
-﻿@model List<ShopSphere.DatabaseModels.Product>
+﻿@model IEnumerable<ShopSphere.DatabaseModels.Product>
 
-<h2>My Products</h2>
+@{
+    ViewData["Title"] = "My Products";
+}
 
-<a class="btn btn-success mb-2" asp-action="Create">Add Product</a>
+<div class="container mt-4">
 
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Status</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
+    <h2>My Products</h2>
 
-    <tbody>
-        @foreach (var item in Model)
-        {
+    <a asp-action="Create" class="btn btn-success mb-3">
+        Add New Product
+    </a>
+
+    <table class="table table-bordered table-hover">
+
+        <thead class="table-dark">
             <tr>
-                <td>@item.ProductName</td>
-                <td>@item.Price</td>
-                <td>@item.Status</td>
-                <td>
-                    <a asp-action="Details" asp-route-id="@item.ProductId" class="btn btn-info btn-sm">Details</a>
-                    <a asp-action="Edit" asp-route-id="@item.ProductId" class="btn btn-warning btn-sm">Edit</a>
-                    <a asp-action="Delete" asp-route-id="@item.ProductId" class="btn btn-danger btn-sm">Delete</a>
-                </td>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Brand</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Status</th>
+                <th>Actions</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ProductName</td>
+                    <td>@item.Category?.CategoryName</td>
+                    <td>@item.Brand?.BrandName</td>
+                    <td>₹@item.Price</td>
+                    <td>@item.Stock</td>
+                    <td>
+                        <span class="badge bg-info">@item.Status</span>
+                    </td>
+
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.ProductId" class="btn btn-info btn-sm">View</a>
+                        <a asp-action="Edit" asp-route-id="@item.ProductId" class="btn btn-warning btn-sm">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.ProductId" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+</div>

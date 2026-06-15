@@ -254,6 +254,7 @@ C:\2026\C_Sharp\Final Project [Team-A]\ShopSphere\ShopSphere\bin\Debug\net8.0\zh
 C:\2026\C_Sharp\Final Project [Team-A]\ShopSphere\ShopSphere\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
 C:\2026\C_Sharp\Final Project [Team-A]\ShopSphere\ShopSphere\bin\Debug\net8.0\System.ClientModel.dll
 <<<<<<< HEAD
+=======
 C:\Final project\Shop-E-Commerce\ShopSphere\ShopSphere\bin\Debug\net8.0\appsettings.Development.json
 C:\Final project\Shop-E-Commerce\ShopSphere\ShopSphere\bin\Debug\net8.0\appsettings.json
 C:\Final project\Shop-E-Commerce\ShopSphere\ShopSphere\bin\Debug\net8.0\ShopSphere.staticwebassets.runtime.json
@@ -509,7 +510,7 @@ C:\Final project\Shop-E-Commerce\ShopSphere\ShopSphere\obj\Debug\net8.0\refint\S
 C:\Final project\Shop-E-Commerce\ShopSphere\ShopSphere\obj\Debug\net8.0\ShopSphere.pdb
 C:\Final project\Shop-E-Commerce\ShopSphere\ShopSphere\obj\Debug\net8.0\ShopSphere.genruntimeconfig.cache
 C:\Final project\Shop-E-Commerce\ShopSphere\ShopSphere\obj\Debug\net8.0\ref\ShopSphere.dll
-=======
+>>>>>>> 7dcc638f641bc74245c4c6412c3c308176ba91b7
 C:\Users\poornimadevig\OneDrive - Infinite Computer Solutions (India) Limited\Documents\ShopSphere\ShopSphere\ShopSphere\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\poornimadevig\OneDrive - Infinite Computer Solutions (India) Limited\Documents\ShopSphere\ShopSphere\ShopSphere\bin\Debug\net8.0\appsettings.json
 C:\Users\poornimadevig\OneDrive - Infinite Computer Solutions (India) Limited\Documents\ShopSphere\ShopSphere\ShopSphere\bin\Debug\net8.0\ShopSphere.staticwebassets.runtime.json
@@ -744,7 +745,6 @@ C:\Users\poornimadevig\OneDrive - Infinite Computer Solutions (India) Limited\Do
 C:\Users\poornimadevig\OneDrive - Infinite Computer Solutions (India) Limited\Documents\ShopSphere\ShopSphere\ShopSphere\obj\Debug\net8.0\ShopSphere.AssemblyInfoInputs.cache
 C:\Users\poornimadevig\OneDrive - Infinite Computer Solutions (India) Limited\Documents\ShopSphere\ShopSphere\ShopSphere\obj\Debug\net8.0\ShopSphere.AssemblyInfo.cs
 C:\Users\poornimadevig\OneDrive - Infinite Computer Solutions (India) Limited\Documents\ShopSphere\ShopSphere\ShopSphere\obj\Debug\net8.0\ShopSphere.csproj.CoreCompileInputs.cache
-C:\Users\poornimadevig\OneDrive - Infinite Computer Solutions (India) Limited\Documents\ShopSphere\ShopSphere\ShopSphere\obj\Debug\net8.0\ShopSphere.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\poornimadevig\OneDrive - Infinite Computer Solutions (India) Limited\Documents\ShopSphere\ShopSphere\ShopSphere\obj\Debug\net8.0\ShopSphere.RazorAssemblyInfo.cache
 C:\Users\poornimadevig\OneDrive - Infinite Computer Solutions (India) Limited\Documents\ShopSphere\ShopSphere\ShopSphere\obj\Debug\net8.0\ShopSphere.RazorAssemblyInfo.cs
 C:\Users\poornimadevig\OneDrive - Infinite Computer Solutions (India) Limited\Documents\ShopSphere\ShopSphere\ShopSphere\obj\Debug\net8.0\ShopSphere.sourcelink.json
@@ -766,4 +766,3 @@ C:\Users\poornimadevig\OneDrive - Infinite Computer Solutions (India) Limited\Do
 C:\Users\poornimadevig\OneDrive - Infinite Computer Solutions (India) Limited\Documents\ShopSphere\ShopSphere\ShopSphere\obj\Debug\net8.0\ShopSphere.pdb
 C:\Users\poornimadevig\OneDrive - Infinite Computer Solutions (India) Limited\Documents\ShopSphere\ShopSphere\ShopSphere\obj\Debug\net8.0\ShopSphere.genruntimeconfig.cache
 C:\Users\poornimadevig\OneDrive - Infinite Computer Solutions (India) Limited\Documents\ShopSphere\ShopSphere\ShopSphere\obj\Debug\net8.0\ref\ShopSphere.dll
->>>>>>> 88820085aae37e668b2686eb2064205f09503511

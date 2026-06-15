@@ -1,0 +1,53 @@
+﻿@model ShopSphere.DatabaseModels.User
+
+@{
+    ViewData["Title"] = "My Profile";
+}
+
+<div class="container mt-4">
+
+    <div class="card shadow p-4">
+
+        <h3>My Profile</h3>
+
+        <hr />
+
+        <table class="table table-bordered">
+
+            <tr>
+                <th>Name</th>
+                <td>@Model.Name</td>
+            </tr>
+
+            <tr>
+                <th>Email</th>
+                <td>@Model.Email</td>
+            </tr>
+
+            <tr>
+                <th>Mobile</th>
+                <td>@Model.MobileNo</td>
+            </tr>
+
+            <tr>
+                <th>Address</th>
+                <td>@Model.Address</td>
+            </tr>
+
+            <tr>
+                <th>Role</th>
+                <td>
+                    <span class="badge bg-primary">@Model.Role</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th>Joined</th>
+                <td>@Model.CreatedDate?.ToString("dd-MMM-yyyy")</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>

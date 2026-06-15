@@ -13,10 +13,14 @@ namespace ShopSphere.Controllers
         {
             _context = context;
         }
+        public IActionResult Index()
+        {
+            return RedirectToAction("MyPayments");
+        }
 
-        
+
         // 1. PAYMENT PAGE (SHOW ORDER SUMMARY)
-        
+
         public IActionResult Pay(int orderId)
         {
             // Load order from DB

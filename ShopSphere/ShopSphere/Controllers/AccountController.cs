@@ -64,16 +64,29 @@ namespace ShopSphere.Controllers
                 return View();
             }
 
+            // SESSION
             HttpContext.Session.SetInt32("UserId", user.UserId);
             HttpContext.Session.SetString("UserRole", user.Role ?? "");
             HttpContext.Session.SetString("UserName", user.Name ?? "");
 
-            return RedirectToAction("Index", "Home");
+            //  ROLE BASED REDIRECT (IMPORTANT FIX)
+            if (user.Role == "Admin")
+            {
+                return RedirectToAction("Index", "Admin");
+            }
+            else if (user.Role == "Retailer")
+            {
+                return RedirectToAction("Index", "Retailer");
+            }
+            else
+            {
+                return RedirectToAction("Index", "UserHome");
+            }
         }
 
-       
+
         // LOGOUT
-       
+
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
