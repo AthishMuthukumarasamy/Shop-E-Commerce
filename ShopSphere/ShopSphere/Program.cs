@@ -3,23 +3,17 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
-// MVC SERVICES
-
+// ---------------- MVC ----------------
 builder.Services.AddControllersWithViews();
 
-
-// DATABASE (ShoppDbContext ONLY)
-
+// ---------------- DATABASE ----------------
 builder.Services.AddDbContext<ShoppDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")
     )
 );
 
-
-// SESSION CONFIGURATION
-
+// ---------------- SESSION ----------------
 builder.Services.AddDistributedMemoryCache();
 
 builder.Services.AddSession(options =>
@@ -29,11 +23,13 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 
+// ---------------- AUTH (optional but good practice) ----------------
+builder.Services.AddAuthentication();
+builder.Services.AddAuthorization();
+
 var app = builder.Build();
 
-
-// PIPELINE CONFIG
-
+// ---------------- PIPELINE ----------------
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -45,13 +41,12 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-// IMPORTANT: SESSION MUST BE BEFORE AUTH
-app.UseSession();
 
+app.UseSession();          // MUST be before authorization/authentication
+app.UseAuthentication();   
 app.UseAuthorization();
 
-
-// DEFAULT ROUTE
+// ---------------- ROUTES ----------------
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}"

@@ -13,8 +13,13 @@ namespace ShopSphere.Controllers
             _context = context;
         }
 
+        public IActionResult Index()
+        {
+            return RedirectToAction("MyOrders");
+        }
+
         // PLACE ORDER (CHECKOUT)
-       
+
         public IActionResult PlaceOrder()
         {
             int userId = HttpContext.Session.GetInt32("UserId") ?? 0;

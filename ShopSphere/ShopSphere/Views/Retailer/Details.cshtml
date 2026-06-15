@@ -1,11 +1,25 @@
 ﻿@model ShopSphere.DatabaseModels.Product
 
-<h2>Product Details</h2>
+@{
+    ViewData["Title"] = "Product Details";
+}
 
-<p><b>Name:</b> @Model.ProductName</p>
-<p><b>Price:</b> @Model.Price</p>
-<p><b>Status:</b> @Model.Status</p>
-<p><b>Category:</b> @Model.Category?.CategoryName</p>
-<p><b>Brand:</b> @Model.Brand?.BrandName</p>
+<div class="container mt-4">
 
-<a asp-action="MyProducts" class="btn btn-secondary">Back</a>
+    <h2>Product Details</h2>
+
+    <table class="table table-bordered">
+
+        <tr><th>Name</th><td>@Model.ProductName</td></tr>
+        <tr><th>Description</th><td>@Model.Description</td></tr>
+        <tr><th>Price</th><td>₹@Model.Price</td></tr>
+        <tr><th>Stock</th><td>@Model.Stock</td></tr>
+        <tr><th>Category</th><td>@Model.Category?.CategoryName</td></tr>
+        <tr><th>Brand</th><td>@Model.Brand?.BrandName</td></tr>
+        <tr><th>Status</th><td>@Model.Status</td></tr>
+
+    </table>
+
+    <a asp-action="MyProducts" class="btn btn-secondary">Back</a>
+
+</div>

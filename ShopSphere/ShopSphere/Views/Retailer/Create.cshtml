@@ -1,21 +1,57 @@
 ﻿@model ShopSphere.DatabaseModels.Product
 
-<h2>Create Product</h2>
+@{
+    ViewData["Title"] = "Create Product";
+}
 
-<form asp-action="Create" method="post">
+<div class="container mt-4">
 
-    <input asp-for="ProductName" class="form-control" placeholder="Product Name" />
+    <h2>Add Product</h2>
 
-    <input asp-for="Price" class="form-control mt-2" placeholder="Price" />
+    <form asp-action="Create" method="post">
 
-    <select asp-for="CategoryId" class="form-control mt-2"
-            asp-items="@(new SelectList(ViewBag.Categories, "CategoryId", "CategoryName"))">
-    </select>
+        <div class="mb-2">
+            <label>Name</label>
+            <input asp-for="ProductName" class="form-control" />
+        </div>
 
-    <select asp-for="BrandId" class="form-control mt-2"
-            asp-items="@(new SelectList(ViewBag.Brands, "BrandId", "BrandName"))">
-    </select>
+        <div class="mb-2">
+            <label>Description</label>
+            <textarea asp-for="Description" class="form-control"></textarea>
+        </div>
 
-    <button type="submit" class="btn btn-success mt-3">Save</button>
+        <div class="mb-2">
+            <label>Price</label>
+            <input asp-for="Price" class="form-control" />
+        </div>
 
-</form>
+        <div class="mb-2">
+            <label>Stock</label>
+            <input asp-for="Stock" class="form-control" />
+        </div>
+
+        <div class="mb-2">
+            <label>Category</label>
+            <select asp-for="CategoryId" class="form-control">
+                @foreach (var c in ViewBag.Categories)
+                {
+                    <option value="@c.CategoryId">@c.CategoryName</option>
+                }
+            </select>
+        </div>
+
+        <div class="mb-2">
+            <label>Brand</label>
+            <select asp-for="BrandId" class="form-control">
+                @foreach (var b in ViewBag.Brands)
+                {
+                    <option value="@b.BrandId">@b.BrandName</option>
+                }
+            </select>
+        </div>
+
+        <button class="btn btn-success">Create</button>
+
+    </form>
+
+</div>

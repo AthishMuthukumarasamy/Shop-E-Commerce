@@ -8,34 +8,45 @@ namespace ShopSphere.Controllers
     {
         private readonly ShoppDbContext _context;
 
-        public AdminController(ShoppDbContext context)
+    public AdminController(ShoppDbContext context)
         {
             _context = context;
         }
 
-        
         // ADMIN DASHBOARD
-       
         public IActionResult Index()
         {
             return View();
         }
 
-        
         // PRODUCT LIST
         public IActionResult Products()
         {
             var products = _context.Products
                 .Include(p => p.Category)
                 .Include(p => p.Brand)
+                .Include(p => p.Retailer)
                 .ToList();
 
             return View(products);
         }
 
-        
+        // VIEW PRODUCT DETAILS
+        public IActionResult ViewProduct(int id)
+        {
+            var product = _context.Products
+                .Include(p => p.Category)
+                .Include(p => p.Brand)
+                .Include(p => p.Retailer)
+                .FirstOrDefault(p => p.ProductId == id);
+
+            if (product == null)
+                return NotFound();
+
+            return View(product);
+        }
+
         // ADD PRODUCT (GET)
-        
         public IActionResult AddProduct()
         {
             ViewBag.Categories = _context.Categories.ToList();
@@ -48,6 +59,14 @@ namespace ShopSphere.Controllers
         [HttpPost]
         public IActionResult AddProduct(Product product)
         {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Categories = _context.Categories.ToList();
+                ViewBag.Brands = _context.Brands.ToList();
+
+                return View(product);
+            }
+
             product.CreatedDate = DateTime.Now;
             product.IsActive = true;
 
@@ -57,9 +76,7 @@ namespace ShopSphere.Controllers
             return RedirectToAction("Products");
         }
 
-        
         // EDIT PRODUCT (GET)
-        
         public IActionResult EditProduct(int id)
         {
             var product = _context.Products.Find(id);
@@ -77,16 +94,37 @@ namespace ShopSphere.Controllers
         [HttpPost]
         public IActionResult EditProduct(Product product)
         {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Categories = _context.Categories.ToList();
+                ViewBag.Brands = _context.Brands.ToList();
+
+                return View(product);
+            }
+
             _context.Products.Update(product);
             _context.SaveChanges();
 
             return RedirectToAction("Products");
         }
 
-        
-        // DELETE PRODUCT
-        
+        // DELETE PRODUCT (GET)
         public IActionResult DeleteProduct(int id)
+        {
+            var product = _context.Products
+                .Include(p => p.Category)
+                .Include(p => p.Brand)
+                .FirstOrDefault(p => p.ProductId == id);
+
+            if (product == null)
+                return NotFound();
+
+            return View(product);
+        }
+
+        // DELETE PRODUCT (POST)
+        [HttpPost, ActionName("DeleteProduct")]
+        public IActionResult DeleteConfirmed(int id)
         {
             var product = _context.Products.Find(id);
 
@@ -99,4 +137,6 @@ namespace ShopSphere.Controllers
             return RedirectToAction("Products");
         }
     }
+
+
 }

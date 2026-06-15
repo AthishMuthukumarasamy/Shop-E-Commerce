@@ -10,9 +10,10 @@
 
             <div class="card h-100 shadow-sm">
 
-                <img src="@item.ProductImages.FirstOrDefault()?.ImageUrl"
-                     class="card-img-top"
-                     style="height:200px; object-fit:cover;" />
+                <img src="@item.ProductImages.FirstOrDefault(x => x.IsPrimary == true)?.ImageUrl
+                ?? item.ProductImages.FirstOrDefault()?.ImageUrl"
+                     class="img-fluid"
+                     style="height:150px; object-fit:cover;" />
 
                 <div class="card-body">
 

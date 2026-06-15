@@ -1,16 +1,24 @@
 ﻿@model ShopSphere.DatabaseModels.Product
 
-<h2>Delete Product</h2>
+@{
+    ViewData["Title"] = "Delete Product";
+}
 
-<h4>Are you sure you want to delete this product?</h4>
+<div class="container mt-4">
 
-<p><b>@Model.ProductName</b></p>
+    <h3>Are you sure you want to delete this product?</h3>
 
-<form asp-action="Delete" method="post">
+    <div class="alert alert-danger">
+        <b>@Model.ProductName</b>
+    </div>
 
-    <input type="hidden" asp-for="ProductId" />
+    <form asp-action="DeleteConfirmed" method="post">
 
-    <button type="submit" class="btn btn-danger">Yes Delete</button>
-    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        <input type="hidden" name="id" value="@Model.ProductId" />
 
-</form>
+        <button class="btn btn-danger">Delete</button>
+        <a asp-action="MyProducts" class="btn btn-secondary">Cancel</a>
+
+    </form>
+
+</div>
