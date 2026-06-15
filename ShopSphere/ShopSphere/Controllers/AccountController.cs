@@ -13,9 +13,9 @@ namespace ShopSphere.Controllers
             _context = context;
         }
 
-     
+
         // REGISTER
-      
+
         public IActionResult Register()
         {
             return View();
