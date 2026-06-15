@@ -13,9 +13,7 @@ namespace ShopSphere.Controllers
             _context = context;
         }
 
-
         // REGISTER
-
         public IActionResult Register()
         {
             return View();
@@ -35,7 +33,10 @@ namespace ShopSphere.Controllers
                 return View(user);
             }
 
-            user.Role = "User";
+            // ❌ OLD (removed)
+            // user.Role = "User";
+
+            // ✔ Role now comes from dropdown (User / Retailer)
             user.CreatedDate = DateTime.Now;
 
             _context.Users.Add(user);
@@ -44,9 +45,7 @@ namespace ShopSphere.Controllers
             return RedirectToAction("Login");
         }
 
-       
         // LOGIN
-       
         public IActionResult Login()
         {
             return View();
@@ -60,42 +59,33 @@ namespace ShopSphere.Controllers
 
             if (user == null)
             {
-                ViewBag.Error = "Invalid Email and Password";
+                ViewBag.Error = "Invalid Email or Password";
                 return View();
             }
 
-            // SESSION
+            // SESSION (STANDARDIZED)
             HttpContext.Session.SetInt32("UserId", user.UserId);
-            HttpContext.Session.SetString("UserRole", user.Role ?? "");
+            HttpContext.Session.SetString("Role", user.Role ?? "");
             HttpContext.Session.SetString("UserName", user.Name ?? "");
 
-            //  ROLE BASED REDIRECT (IMPORTANT FIX)
+            // ROLE REDIRECT
             if (user.Role == "Admin")
-            {
                 return RedirectToAction("Index", "Admin");
-            }
-            else if (user.Role == "Retailer")
-            {
+
+            if (user.Role == "Retailer")
                 return RedirectToAction("Index", "Retailer");
-            }
-            else
-            {
-                return RedirectToAction("Index", "UserHome");
-            }
+
+            return RedirectToAction("Index", "Home");
         }
 
-
         // LOGOUT
-
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
             return RedirectToAction("Login");
         }
 
-        
         // PROFILE
-       
         public IActionResult Profile()
         {
             int? userId = HttpContext.Session.GetInt32("UserId");
@@ -106,78 +96,6 @@ namespace ShopSphere.Controllers
             var user = _context.Users.FirstOrDefault(x => x.UserId == userId);
 
             return View(user);
-        }
-
-       
-        // FORGOT PASSWORD (OTP)
-       
-        public IActionResult ForgotPassword()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult ForgotPassword(string email)
-        {
-            var user = _context.Users.FirstOrDefault(x => x.Email == email);
-
-            if (user == null)
-            {
-                ViewBag.Error = "Email not found";
-                return View();
-            }
-
-            var otp = new Otp
-            {
-                UserId = user.UserId,
-                OtpCode = new Random().Next(100000, 999999).ToString(),
-                ExpiryTime = DateTime.Now.AddMinutes(5),
-                IsUsed = false
-            };
-
-            _context.Otps.Add(otp);
-            _context.SaveChanges();
-
-            ViewBag.Message = "OTP generated (demo): " + otp.OtpCode;
-
-            return RedirectToAction("ResetPassword", new { userId = user.UserId });
-        }
-
-      
-        // RESET PASSWORD
-      
-        public IActionResult ResetPassword(int userId)
-        {
-            ViewBag.UserId = userId;
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult ResetPassword(int userId, string otpCode, string newPassword)
-        {
-            var otp = _context.Otps.FirstOrDefault(x =>
-                x.UserId == userId &&
-                x.OtpCode == otpCode &&
-                x.IsUsed == false);
-
-            if (otp == null || otp.ExpiryTime < DateTime.Now)
-            {
-                ViewBag.Error = "Invalid or expired OTP";
-                ViewBag.UserId = userId;
-                return View();
-            }
-
-            var user = _context.Users.FirstOrDefault(x => x.UserId == userId);
-
-            if (user != null)
-            {
-                user.PasswordHash = newPassword;
-                otp.IsUsed = true;
-
-                _context.SaveChanges();
-            }
-
-            return RedirectToAction("Login");
         }
     }
 }

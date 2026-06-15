@@ -8,20 +8,32 @@ namespace ShopSphere.Controllers
     {
         private readonly ShoppDbContext _context;
 
-    public AdminController(ShoppDbContext context)
+        public AdminController(ShoppDbContext context)
         {
             _context = context;
+        }
+
+        // 🔐 SECURITY CHECK METHOD
+        private bool IsAdmin()
+        {
+            return HttpContext.Session.GetString("Role") == "Admin";
         }
 
         // ADMIN DASHBOARD
         public IActionResult Index()
         {
+            if (!IsAdmin())
+                return RedirectToAction("Login", "Account");
+
             return View();
         }
 
         // PRODUCT LIST
         public IActionResult Products()
         {
+            if (!IsAdmin())
+                return RedirectToAction("Login", "Account");
+
             var products = _context.Products
                 .Include(p => p.Category)
                 .Include(p => p.Brand)
@@ -34,6 +46,9 @@ namespace ShopSphere.Controllers
         // VIEW PRODUCT DETAILS
         public IActionResult ViewProduct(int id)
         {
+            if (!IsAdmin())
+                return RedirectToAction("Login", "Account");
+
             var product = _context.Products
                 .Include(p => p.Category)
                 .Include(p => p.Brand)
@@ -49,21 +64,25 @@ namespace ShopSphere.Controllers
         // ADD PRODUCT (GET)
         public IActionResult AddProduct()
         {
+            if (!IsAdmin())
+                return RedirectToAction("Login", "Account");
+
             ViewBag.Categories = _context.Categories.ToList();
             ViewBag.Brands = _context.Brands.ToList();
 
             return View();
         }
 
-        // ADD PRODUCT (POST)
         [HttpPost]
         public IActionResult AddProduct(Product product)
         {
+            if (!IsAdmin())
+                return RedirectToAction("Login", "Account");
+
             if (!ModelState.IsValid)
             {
                 ViewBag.Categories = _context.Categories.ToList();
                 ViewBag.Brands = _context.Brands.ToList();
-
                 return View(product);
             }
 
@@ -76,11 +95,13 @@ namespace ShopSphere.Controllers
             return RedirectToAction("Products");
         }
 
-        // EDIT PRODUCT (GET)
+        // EDIT PRODUCT
         public IActionResult EditProduct(int id)
         {
-            var product = _context.Products.Find(id);
+            if (!IsAdmin())
+                return RedirectToAction("Login", "Account");
 
+            var product = _context.Products.Find(id);
             if (product == null)
                 return NotFound();
 
@@ -90,15 +111,16 @@ namespace ShopSphere.Controllers
             return View(product);
         }
 
-        // EDIT PRODUCT (POST)
         [HttpPost]
         public IActionResult EditProduct(Product product)
         {
+            if (!IsAdmin())
+                return RedirectToAction("Login", "Account");
+
             if (!ModelState.IsValid)
             {
                 ViewBag.Categories = _context.Categories.ToList();
                 ViewBag.Brands = _context.Brands.ToList();
-
                 return View(product);
             }
 
@@ -108,9 +130,12 @@ namespace ShopSphere.Controllers
             return RedirectToAction("Products");
         }
 
-        // DELETE PRODUCT (GET)
+        // DELETE PRODUCT
         public IActionResult DeleteProduct(int id)
         {
+            if (!IsAdmin())
+                return RedirectToAction("Login", "Account");
+
             var product = _context.Products
                 .Include(p => p.Category)
                 .Include(p => p.Brand)
@@ -122,10 +147,12 @@ namespace ShopSphere.Controllers
             return View(product);
         }
 
-        // DELETE PRODUCT (POST)
         [HttpPost, ActionName("DeleteProduct")]
         public IActionResult DeleteConfirmed(int id)
         {
+            if (!IsAdmin())
+                return RedirectToAction("Login", "Account");
+
             var product = _context.Products.Find(id);
 
             if (product != null)
@@ -137,6 +164,4 @@ namespace ShopSphere.Controllers
             return RedirectToAction("Products");
         }
     }
-
-
 }
