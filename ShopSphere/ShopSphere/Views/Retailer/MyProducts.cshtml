@@ -1,0 +1,32 @@
+﻿@model List<ShopSphere.DatabaseModels.Product>
+
+<h2>My Products</h2>
+
+<a class="btn btn-success mb-2" asp-action="Create">Add Product</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ProductName</td>
+                <td>@item.Price</td>
+                <td>@item.Status</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.ProductId" class="btn btn-info btn-sm">Details</a>
+                    <a asp-action="Edit" asp-route-id="@item.ProductId" class="btn btn-warning btn-sm">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.ProductId" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

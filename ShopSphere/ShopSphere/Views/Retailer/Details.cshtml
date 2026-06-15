@@ -1,0 +1,11 @@
+﻿@model ShopSphere.DatabaseModels.Product
+
+<h2>Product Details</h2>
+
+<p><b>Name:</b> @Model.ProductName</p>
+<p><b>Price:</b> @Model.Price</p>
+<p><b>Status:</b> @Model.Status</p>
+<p><b>Category:</b> @Model.Category?.CategoryName</p>
+<p><b>Brand:</b> @Model.Brand?.BrandName</p>
+
+<a asp-action="MyProducts" class="btn btn-secondary">Back</a>

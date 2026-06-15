@@ -1,0 +1,22 @@
+﻿@model ShopSphere.DatabaseModels.Product
+
+<h2>Add Product</h2>
+
+<form asp-action="AddProduct" method="post">
+
+    <input asp-for="ProductName" class="form-control" placeholder="Product Name" />
+
+    <input asp-for="Price" class="form-control mt-2" placeholder="Price" />
+
+    <select asp-for="CategoryId" class="form-control mt-2"
+            asp-items="@(new SelectList(ViewBag.Categories, "CategoryId", "CategoryName"))">
+        <option>Select Category</option>
+    </select>
+
+    <select asp-for="BrandId" class="form-control mt-2"
+            asp-items="@(new SelectList(ViewBag.Brands, "BrandId", "BrandName"))">
+        <option>Select Brand</option>
+    </select>
+
+    <button type="submit" class="btn btn-success mt-3">Save</button>
+</form>
