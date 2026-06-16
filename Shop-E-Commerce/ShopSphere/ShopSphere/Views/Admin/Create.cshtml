@@ -1,0 +1,104 @@
+﻿@model ShopSphere.DatabaseModels.Product
+
+@{
+    ViewData["Title"] = "Add Product";
+}
+
+<div class="container mt-4">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-success text-white">
+            <h3>Add Product</h3>
+        </div>
+
+        <div class="card-body">
+
+            <form asp-action="AddProduct" method="post">
+
+                <div class="mb-3">
+                    <label>Product Name</label>
+                    <input asp-for="ProductName"
+                           class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label>Description</label>
+                    <textarea asp-for="Description"
+                              class="form-control"></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label>Price</label>
+                    <input asp-for="Price"
+                           class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label>Stock</label>
+                    <input asp-for="Stock"
+                           class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label>Status</label>
+                    <input asp-for="Status"
+                           class="form-control"
+                           value="Pending" />
+                </div>
+
+                <div class="mb-3">
+
+                    <label>Category</label>
+
+                    <select asp-for="CategoryId"
+                            class="form-select">
+
+                        @foreach (var category in ViewBag.Categories)
+                        {
+                            <option value="@category.CategoryId">
+                                @category.CategoryName
+                            </option>
+                        }
+
+                    </select>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label>Brand</label>
+
+                    <select asp-for="BrandId"
+                            class="form-select">
+
+                        @foreach (var brand in ViewBag.Brands)
+                        {
+                            <option value="@brand.BrandId">
+                                @brand.BrandName
+                            </option>
+                        }
+
+                    </select>
+
+                </div>
+
+                <div class="mb-3">
+                    <label>Retailer Id</label>
+
+                    <input asp-for="RetailerId"
+                           class="form-control" />
+                </div>
+
+                <button type="submit"
+                        class="btn btn-success">
+                    Save Product
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

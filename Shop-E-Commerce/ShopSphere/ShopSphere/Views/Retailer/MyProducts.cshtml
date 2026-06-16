@@ -1,0 +1,55 @@
+﻿@model IEnumerable<ShopSphere.DatabaseModels.Product>
+
+@{
+    ViewData["Title"] = "My Products";
+}
+
+<div class="container mt-4">
+
+    <h2>My Products</h2>
+
+    <a asp-action="Create" class="btn btn-success mb-3">
+        Add New Product
+    </a>
+
+    <table class="table table-bordered table-hover">
+
+        <thead class="table-dark">
+            <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Brand</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ProductName</td>
+                    <td>@item.Category?.CategoryName</td>
+                    <td>@item.Brand?.BrandName</td>
+                    <td>₹@item.Price</td>
+                    <td>@item.Stock</td>
+                    <td>
+                        <span class="badge bg-info">@item.Status</span>
+                    </td>
+
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.ProductId" class="btn btn-info btn-sm">View</a>
+                        <a asp-action="Edit" asp-route-id="@item.ProductId" class="btn btn-warning btn-sm">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.ProductId" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+</div>

@@ -1,0 +1,286 @@
+﻿@using ShopSphere.DatabaseModels
+@using ShopSphere.Extensions
+
+@{
+    var cart = Context.Session.GetObjectFromJson<List<CartItem>>("Cart")
+                ?? new List<CartItem>();
+
+    int cartCount = cart.Sum(x => x.Quantity);
+
+    string userName = Context.Session.GetString("UserName") ?? "";
+    int? userId = Context.Session.GetInt32("UserId");
+    string userRole = Context.Session.GetString("UserRole") ?? "";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>@ViewData["Title"] - ShopSphere</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow">
+
+        <div class="container">
+
+            <a class="navbar-brand fw-bold" asp-controller="Home" asp-action="Index">
+                ShopSphere
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+
+                <!-- LEFT MENU -->
+                <ul class="navbar-nav me-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Products" asp-action="Index">Products</a>
+                    </li>
+
+                    <!-- ✅ CATEGORY ADDED HERE -->
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Category" asp-action="Index">
+                            Categories
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Compare" asp-action="Index">Compare</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Order" asp-action="Index">Orders</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Payment" asp-action="Index">Payments</a>
+                    </li>
+
+                    <!-- ADMIN -->
+                    @if (userRole == "Admin")
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-warning" data-bs-toggle="dropdown">
+                                Admin Panel
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Admin" asp-action="Index">
+                                        Dashboard
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Admin" asp-action="Products">
+                                        Manage Products
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+
+                    <!-- RETAILER -->
+                    @if (userRole == "Retailer")
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown">
+                                Retailer Panel
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Retailer" asp-action="Index">
+                                        Dashboard
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Retailer" asp-action="MyProducts">
+                                        My Products
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Retailer" asp-action="Create">
+                                        Add Product
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+
+                    <!-- USER -->
+                    @if (userRole == "User")
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-controller="UserHome" asp-action="Index">
+                                Dashboard
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-controller="Orders" asp-action="MyOrders">
+                                My Orders
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-controller="Payments" asp-action="MyPayments">
+                                My Payments
+                            </a>
+                        </li>
+                    }
+
+                </ul>
+
+                <!-- SEARCH -->
+                <form class="d-flex me-3" asp-controller="Products" asp-action="Index" method="get">
+                    <input class="form-control me-2" type="search" name="searchString" placeholder="Search products..." />
+                    <button class="btn btn-light" type="submit">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </form>
+
+                <!-- RIGHT MENU -->
+                <ul class="navbar-nav align-items-center">
+
+                    <!-- CART -->
+                    <li class="nav-item me-2">
+                        <a class="btn btn-warning position-relative" asp-controller="Cart" asp-action="Index">
+                            <i class="bi bi-cart3"></i> Cart
+
+                            @if (cartCount > 0)
+                            {
+                                <span class="position-absolute top-0 start-100 translate-middle badge bg-danger">
+                                    @cartCount
+                                </span>
+                            }
+                        </a>
+                    </li>
+
+                    <!-- LOGIN USER -->
+                    @if (userId != null)
+                    {
+                        <li class="nav-item dropdown">
+
+                            <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown">
+                                Hello, @userName
+
+                                @if (userRole == "Admin")
+                                {
+                                    <span class="badge bg-danger ms-1">Admin</span>
+                                }
+                                else if (userRole == "Retailer")
+                                {
+                                    <span class="badge bg-success ms-1">Retailer</span>
+                                }
+                            </a>
+
+                            <ul class="dropdown-menu dropdown-menu-end">
+
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Account" asp-action="Profile">
+                                        My Profile
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Wishlist" asp-action="Index">
+                                        Wishlist
+                                    </a>
+                                </li>
+
+                                <li><hr class="dropdown-divider" /></li>
+
+                                <li>
+                                    <a class="dropdown-item text-danger" asp-controller="Account" asp-action="Logout">
+                                        Logout
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="btn btn-outline-light me-2" asp-controller="Account" asp-action="Login">
+                                Login
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="btn btn-light" asp-controller="Account" asp-action="Register">
+                                Sign Up
+                            </a>
+                        </li>
+                    }
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- BODY -->
+    <div class="container mt-4">
+        @RenderBody()
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white mt-5">
+        <div class="container py-4">
+
+            <div class="row">
+
+                <div class="col-md-4">
+                    <h5>ShopSphere</h5>
+                    <p>Your trusted online shopping platform.</p>
+                </div>
+
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a class="text-white" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li><a class="text-white" asp-controller="Products" asp-action="Index">Products</a></li>
+                        <li><a class="text-white" asp-controller="Cart" asp-action="Index">Cart</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4">
+                    <h5>Support</h5>
+                    <p>Email: support@shopsphere.com</p>
+                    <p>Phone: +91 9876543210</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="text-center border-top py-3">
+            © 2026 ShopSphere
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js"></script>
+
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

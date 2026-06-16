@@ -1,0 +1,47 @@
+﻿@model ShopSphere.DatabaseModels.Payment
+
+@{
+    ViewData["Title"] = "Payment Success";
+}
+
+<div class="container mt-5">
+
+    <div class="card shadow border-success">
+
+        <div class="card-body text-center">
+
+            <h2 class="text-success">
+                Payment Successful
+            </h2>
+
+            <hr />
+
+            <p>
+                <strong>Transaction ID:</strong>
+                @Model.TransactionId
+            </p>
+
+            <p>
+                <strong>Payment Method:</strong>
+                @Model.PaymentMethod
+            </p>
+
+            <p>
+                <strong>Amount Paid:</strong>
+                ₹@Model.Amount
+            </p>
+
+            <p>
+                <strong>Status:</strong>
+                @Model.PaymentStatus
+            </p>
+
+            <a asp-action="MyPayments"
+               class="btn btn-primary">
+                View Payment History
+            </a>
+
+        </div>
+    </div>
+
+</div>
