@@ -48,7 +48,7 @@ namespace ShopSphere.Controllers
             return View(products);
         }
 
-        // CREATE
+        // CREATE (GET)
         public IActionResult Create()
         {
             ViewBag.Categories = _context.Categories.ToList();
@@ -56,14 +56,19 @@ namespace ShopSphere.Controllers
             return View();
         }
 
+        // CREATE (POST)
         [HttpPost]
         public IActionResult Create(Product product)
         {
             int userId = GetUserId();
 
+            if (userId == 0)
+                return RedirectToAction("Login", "Account");
+
             product.RetailerId = userId;
             product.CreatedDate = DateTime.Now;
             product.Status = "Pending";
+            product.IsActive = true;
 
             _context.Products.Add(product);
             _context.SaveChanges();
@@ -71,7 +76,7 @@ namespace ShopSphere.Controllers
             return RedirectToAction("MyProducts");
         }
 
-        // EDIT
+        // EDIT (GET)
         public IActionResult Edit(int id)
         {
             int userId = GetUserId();
@@ -87,10 +92,10 @@ namespace ShopSphere.Controllers
             return View(product);
         }
 
+        // EDIT (POST)
         [HttpPost]
         public IActionResult Edit(Product product)
         {
-
             int userId = GetUserId();
 
             var existingProduct = _context.Products
@@ -110,10 +115,6 @@ namespace ShopSphere.Controllers
             _context.SaveChanges();
 
             return RedirectToAction("MyProducts");
-            //_context.Products.Update(product);
-            //_context.SaveChanges();
-
-            //return RedirectToAction("MyProducts");
         }
 
         // DETAILS
@@ -144,7 +145,7 @@ namespace ShopSphere.Controllers
             return View(product);
         }
 
-        // DELETE CONFIRMED
+        // DELETE CONFIRMED (FIXED FK ISSUE)
         [HttpPost]
         public IActionResult DeleteConfirmed(int id)
         {
@@ -155,7 +156,22 @@ namespace ShopSphere.Controllers
 
             if (product != null)
             {
+                // ELETE CHILD TABLES FIRST
+                var images = _context.ProductImages.Where(x => x.ProductId == id).ToList();
+                _context.ProductImages.RemoveRange(images);
+
+                var wishlist = _context.Wishlists.Where(x => x.ProductId == id).ToList();
+                _context.Wishlists.RemoveRange(wishlist);
+
+                var cartItems = _context.CartItems.Where(x => x.ProductId == id).ToList();
+                _context.CartItems.RemoveRange(cartItems);
+
+                var orderDetails = _context.OrderDetails.Where(x => x.ProductId == id).ToList();
+                _context.OrderDetails.RemoveRange(orderDetails);
+
+                // DELETE PRODUCT
                 _context.Products.Remove(product);
+
                 _context.SaveChanges();
             }
 
