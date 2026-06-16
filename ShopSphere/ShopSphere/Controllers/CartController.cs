@@ -26,6 +26,7 @@ namespace ShopSphere.Controllers
             var cart = _context.Carts
                 .Include(c => c.CartItems)
                     .ThenInclude(ci => ci.Product)
+                    .ThenInclude(p => p.ProductImages)
                 .FirstOrDefault(c => c.UserId == userId);
 
             if (cart == null)

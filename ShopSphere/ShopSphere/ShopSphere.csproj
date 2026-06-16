@@ -15,4 +15,57 @@
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.23" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Include="wwwroot\Images\ProductImage\10kg-dumbbell-set.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\adidas-hoodie.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\allen-solly-casual-shirt.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\amazon-echo-dot.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\apple-iphone-15.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\apple-watch-series-10.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\atomic-habits.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\barbie-dream-house.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\canon-eos-1500d.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\cosco-football.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\decathlon-yoga-mat.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\dell-inspiron-15.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\dove-shampoo.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\epson-ecotank-printer.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\fitbit-inspire-3.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\garnier-men-face-cream.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\google-pixel-9.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\harry-potter-collection.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\hot-wheels-track-set.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\hp-pavilion-gaming-laptop.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\ifb-dishwasher.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\lakme-face-wash.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\lego-classic-building-set.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\lenovo-thinkpad-e14.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\levis-slim-fit-jeans.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\lg-260l-refrigerator.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\mamaearth-vitamin-c-serum.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\modular-wardrobe.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\nerf-elite-blaster.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\nike-sports-tshirt.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\nilkamal-study-table.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\nivea-body-lotion.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\noise-colorfit-ultra.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\noise-smart-ring.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\oneplus-13.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\puma-running-shorts.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\queen-size-bed.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\remote-control-monster-truck.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\rich-dad-poor-dad.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\samsung-galaxy-s24.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\samsung-galaxy-watch-7.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\samsung-washing-machine-7kg.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\sony-55-inch-smart-tv.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\the-alchemist.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\the-psychology-of-money.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\tv-entertainment-unit.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\whirlpool-microwave-oven.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\wooden-office-chair.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\xiaomi-15.jpg" />
+	  <None Include="wwwroot\Images\ProductImage\yonex-badminton-racket.jpg" />
+	</ItemGroup>
+
 </Project>

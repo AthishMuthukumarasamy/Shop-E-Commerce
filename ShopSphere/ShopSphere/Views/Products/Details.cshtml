@@ -4,7 +4,11 @@
 
     <div class="col-md-6">
 
-        <img src="@Model.ProductImages.FirstOrDefault()?.ImageUrl"
+        @{
+            var imageName = Model.ProductImages.FirstOrDefault()?.ImageUrl ?? "no-image.jpg";
+        }
+
+        <img src="~/Images/ProductImage/@imageName"
              class="img-fluid rounded shadow"
              style="max-height:400px; object-fit:cover;" />
 

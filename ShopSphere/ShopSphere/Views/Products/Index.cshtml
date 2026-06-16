@@ -10,10 +10,17 @@
 
             <div class="card h-100 shadow-sm">
 
-                <img src="@item.ProductImages.FirstOrDefault(x => x.IsPrimary == true)?.ImageUrl
-                ?? item.ProductImages.FirstOrDefault()?.ImageUrl"
+
+                @{
+                    var imageName = item.ProductImages.FirstOrDefault(x => x.IsPrimary == true)?.ImageUrl
+                                    ?? item.ProductImages.FirstOrDefault()?.ImageUrl
+                                    ?? "no-image.jpg";
+                }
+
+                <img src="~/Images/ProductImage/@imageName"
                      class="img-fluid"
                      style="height:150px; object-fit:cover;" />
+                
 
                 <div class="card-body">
 

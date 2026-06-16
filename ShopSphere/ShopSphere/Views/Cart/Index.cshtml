@@ -40,7 +40,9 @@
 
                                 @if (image != null && !string.IsNullOrEmpty(image.ImageUrl))
                                 {
-                                    <img src="@image.ImageUrl" class="img-fluid rounded" style="height:80px;width:80px;object-fit:cover;" />
+                                    <img src="~/Images/ProductImage/@image.ImageUrl"
+                                    class="img-fluid rounded"
+                                    style="height:80px;width:80px;object-fit:cover;" />
                                 }
                                 else
                                 {
