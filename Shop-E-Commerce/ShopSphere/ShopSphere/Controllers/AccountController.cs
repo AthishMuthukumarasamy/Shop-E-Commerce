@@ -33,10 +33,7 @@ namespace ShopSphere.Controllers
                 return View(user);
             }
 
-            // ❌ OLD (removed)
-            // user.Role = "User";
-
-            // ✔ Role now comes from dropdown (User / Retailer)
+            
             user.CreatedDate = DateTime.Now;
 
             _context.Users.Add(user);
@@ -63,7 +60,7 @@ namespace ShopSphere.Controllers
                 return View();
             }
 
-            // SESSION (STANDARDIZED)
+            // SESSION
             HttpContext.Session.SetInt32("UserId", user.UserId);
             HttpContext.Session.SetString("Role", user.Role ?? "");
             HttpContext.Session.SetString("UserName", user.Name ?? "");

@@ -79,7 +79,7 @@ namespace ShopSphere.Controllers
             if (!IsAdmin())
                 return RedirectToAction("Login", "Account");
 
-            product.RetailerId = 1; // FIX HERE
+            product.RetailerId = 1; 
             product.Status = "Approved";
             product.CreatedDate = DateTime.Now;
             product.IsActive = true;
