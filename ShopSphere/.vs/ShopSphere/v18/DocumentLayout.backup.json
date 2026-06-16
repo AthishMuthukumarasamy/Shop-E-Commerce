@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Project\\Shop-E-Commerce\\ShopSphere\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{FF90EFBD-42D2-47B0-94E5-5E15DDC32BCF}|ShopSphere\\ShopSphere.csproj|c:\\project\\shop-e-commerce\\shopsphere\\shopsphere\\controllers\\retailercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF90EFBD-42D2-47B0-94E5-5E15DDC32BCF}|ShopSphere\\ShopSphere.csproj|solutionrelative:shopsphere\\controllers\\retailercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FF90EFBD-42D2-47B0-94E5-5E15DDC32BCF}|ShopSphere\\ShopSphere.csproj|c:\\project\\shop-e-commerce\\shopsphere\\shopsphere\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{FF90EFBD-42D2-47B0-94E5-5E15DDC32BCF}|ShopSphere\\ShopSphere.csproj|solutionrelative:shopsphere\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -102,15 +106,28 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RetailerController.cs",
+              "DocumentMoniker": "C:\\Project\\Shop-E-Commerce\\ShopSphere\\ShopSphere\\Controllers\\RetailerController.cs",
+              "RelativeDocumentMoniker": "ShopSphere\\Controllers\\RetailerController.cs",
+              "ToolTip": "C:\\Project\\Shop-E-Commerce\\ShopSphere\\ShopSphere\\Controllers\\RetailerController.cs",
+              "RelativeToolTip": "ShopSphere\\Controllers\\RetailerController.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAIwG8AAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-16T09:11:12.942Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "OrderSuccess.cshtml",
               "DocumentMoniker": "C:\\Project\\Shop-E-Commerce\\ShopSphere\\ShopSphere\\Views\\Order\\OrderSuccess.cshtml",
               "RelativeDocumentMoniker": "ShopSphere\\Views\\Order\\OrderSuccess.cshtml",
@@ -122,7 +139,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "MyOrders.cshtml",
               "DocumentMoniker": "C:\\Project\\Shop-E-Commerce\\ShopSphere\\ShopSphere\\Views\\Order\\MyOrders.cshtml",
               "RelativeDocumentMoniker": "ShopSphere\\Views\\Order\\MyOrders.cshtml",
@@ -134,7 +151,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Project\\Shop-E-Commerce\\ShopSphere\\ShopSphere\\Views\\Retailer\\Edit.cshtml",
               "RelativeDocumentMoniker": "ShopSphere\\Views\\Retailer\\Edit.cshtml",
@@ -146,7 +163,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "AdminController.cs",
               "DocumentMoniker": "C:\\Project\\Shop-E-Commerce\\ShopSphere\\ShopSphere\\Controllers\\AdminController.cs",
               "RelativeDocumentMoniker": "ShopSphere\\Controllers\\AdminController.cs",
@@ -159,7 +176,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Project\\Shop-E-Commerce\\ShopSphere\\ShopSphere\\appsettings.json",
               "RelativeDocumentMoniker": "ShopSphere\\appsettings.json",
@@ -172,7 +189,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Project\\Shop-E-Commerce\\ShopSphere\\ShopSphere\\Views\\Account\\Login.cshtml",
               "RelativeDocumentMoniker": "ShopSphere\\Views\\Account\\Login.cshtml",
@@ -184,7 +201,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Project\\Shop-E-Commerce\\ShopSphere\\ShopSphere\\Views\\Order\\Details.cshtml",
               "RelativeDocumentMoniker": "ShopSphere\\Views\\Order\\Details.cshtml",
@@ -196,7 +213,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "CompareProduct.cs",
               "DocumentMoniker": "C:\\Project\\Shop-E-Commerce\\ShopSphere\\ShopSphere\\DatabaseModels\\CompareProduct.cs",
               "RelativeDocumentMoniker": "ShopSphere\\DatabaseModels\\CompareProduct.cs",
@@ -208,7 +225,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "PaymentController.cs",
               "DocumentMoniker": "C:\\Project\\Shop-E-Commerce\\ShopSphere\\ShopSphere\\Controllers\\PaymentController.cs",
               "RelativeDocumentMoniker": "ShopSphere\\Controllers\\PaymentController.cs",
@@ -220,7 +237,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "CompareController.cs",
               "DocumentMoniker": "C:\\Project\\Shop-E-Commerce\\ShopSphere\\ShopSphere\\Controllers\\CompareController.cs",
               "RelativeDocumentMoniker": "ShopSphere\\Controllers\\CompareController.cs",
@@ -232,7 +249,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Project\\Shop-E-Commerce\\ShopSphere\\ShopSphere\\Views\\Checkout\\Index.cshtml",
               "RelativeDocumentMoniker": "ShopSphere\\Views\\Checkout\\Index.cshtml",
@@ -244,7 +261,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "CartController.cs",
               "DocumentMoniker": "C:\\Project\\Shop-E-Commerce\\ShopSphere\\ShopSphere\\Controllers\\CartController.cs",
               "RelativeDocumentMoniker": "ShopSphere\\Controllers\\CartController.cs",
@@ -256,7 +273,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Project\\Shop-E-Commerce\\ShopSphere\\ShopSphere\\Views\\Compare\\Index.cshtml",
               "RelativeDocumentMoniker": "ShopSphere\\Views\\Compare\\Index.cshtml",
@@ -268,7 +285,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "WhislistController.cs",
               "DocumentMoniker": "C:\\Project\\Shop-E-Commerce\\ShopSphere\\ShopSphere\\Controllers\\WhislistController.cs",
               "RelativeDocumentMoniker": "ShopSphere\\Controllers\\WhislistController.cs",
@@ -280,7 +297,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Project\\Shop-E-Commerce\\ShopSphere\\ShopSphere\\Views\\Products\\Index.cshtml",
               "RelativeDocumentMoniker": "ShopSphere\\Views\\Products\\Index.cshtml",
@@ -292,7 +309,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Project\\Shop-E-Commerce\\ShopSphere\\ShopSphere\\Views\\Wishlist\\Index.cshtml",
               "RelativeDocumentMoniker": "ShopSphere\\Views\\Wishlist\\Index.cshtml",
@@ -304,7 +321,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "Profile.cshtml",
               "DocumentMoniker": "C:\\Project\\Shop-E-Commerce\\ShopSphere\\ShopSphere\\Views\\Account\\Profile.cshtml",
               "RelativeDocumentMoniker": "ShopSphere\\Views\\Account\\Profile.cshtml",
@@ -316,7 +333,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Project\\Shop-E-Commerce\\ShopSphere\\ShopSphere\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "ShopSphere\\Controllers\\AccountController.cs",
@@ -328,7 +345,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "ProductController.cs",
               "DocumentMoniker": "C:\\Project\\Shop-E-Commerce\\ShopSphere\\ShopSphere\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "ShopSphere\\Controllers\\ProductController.cs",
@@ -340,7 +357,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "ProductImage.cs",
               "DocumentMoniker": "C:\\Project\\Shop-E-Commerce\\ShopSphere\\ShopSphere\\DatabaseModels\\ProductImage.cs",
               "RelativeDocumentMoniker": "ShopSphere\\DatabaseModels\\ProductImage.cs",
@@ -352,7 +369,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Project\\Shop-E-Commerce\\ShopSphere\\ShopSphere\\Views\\Retailer\\Create.cshtml",
               "RelativeDocumentMoniker": "ShopSphere\\Views\\Retailer\\Create.cshtml",
@@ -364,7 +381,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Project\\Shop-E-Commerce\\ShopSphere\\ShopSphere\\Views\\Cart\\Index.cshtml",
               "RelativeDocumentMoniker": "ShopSphere\\Views\\Cart\\Index.cshtml",
@@ -376,7 +393,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Project\\Shop-E-Commerce\\ShopSphere\\ShopSphere\\Views\\Products\\Details.cshtml",
               "RelativeDocumentMoniker": "ShopSphere\\Views\\Products\\Details.cshtml",
