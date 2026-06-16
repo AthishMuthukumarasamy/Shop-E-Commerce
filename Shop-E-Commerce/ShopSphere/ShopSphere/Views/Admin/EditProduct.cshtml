@@ -1,0 +1,52 @@
+﻿@model ShopSphere.DatabaseModels.Product
+
+@{
+    ViewData["Title"] = "Edit Product";
+}
+
+<div class="container mt-4">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-warning">
+            <h4>Edit Product</h4>
+        </div>
+
+        <div class="card-body">
+
+            <form asp-action="EditProduct" method="post">
+
+                <input type="hidden" asp-for="ProductId" />
+                <input asp-for="Status" type="hidden" />
+
+                <div class="mb-2">
+                    <label>Name</label>
+                    <input asp-for="ProductName" class="form-control" />
+                </div>
+
+                <div class="mb-2">
+                    <label>Description</label>
+                    <textarea asp-for="Description" class="form-control"></textarea>
+                </div>
+
+                <div class="mb-2">
+                    <label>Price</label>
+                    <input asp-for="Price" class="form-control" />
+                </div>
+
+                <div class="mb-2">
+                    <label>Stock</label>
+                    <input asp-for="Stock" class="form-control" />
+                </div>
+
+                <button class="btn btn-warning mt-3">
+                    Update
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

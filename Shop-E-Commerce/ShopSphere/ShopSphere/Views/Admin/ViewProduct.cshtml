@@ -1,0 +1,32 @@
+﻿@model ShopSphere.DatabaseModels.Product
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<div class="container mt-4">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-primary text-white">
+            <h4>Product Details</h4>
+        </div>
+
+        <div class="card-body">
+
+            <p><b>Name:</b> @Model.ProductName</p>
+            <p><b>Description:</b> @Model.Description</p>
+            <p><b>Price:</b> ₹@Model.Price</p>
+            <p><b>Stock:</b> @Model.Stock</p>
+            <p><b>Status:</b> @Model.Status</p>
+
+            <a asp-action="EditProduct" asp-route-id="@Model.ProductId"
+               class="btn btn-warning">Edit</a>
+
+            <a asp-action="Products" class="btn btn-secondary">Back</a>
+
+        </div>
+
+    </div>
+
+</div>
