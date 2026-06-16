@@ -166,9 +166,9 @@
                         </a>
                     </li>
 
-                    <!-- LOGIN USER -->
-                    @if (userId != null)
+                    @if (userId.HasValue)
                     {
+                        <!-- LOGGED IN USER -->
                         <li class="nav-item dropdown">
 
                             <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown">
@@ -212,19 +212,23 @@
                     }
                     else
                     {
-                        <!-- LOGIN -->
-                        <li class="nav-item">
-                            <a class="btn btn-outline-light me-2" asp-controller="Account" asp-action="Login">
-                                Login
-                            </a>
-                        </li>
+                        <!-- NOT LOGGED IN -->
+                        @if (!(ViewContext.RouteData.Values["controller"]?.ToString() == "Account"
+                                            && (ViewContext.RouteData.Values["action"]?.ToString() == "Login"
+                                            || ViewContext.RouteData.Values["action"]?.ToString() == "Register")))
+                        {
+                            <li class="nav-item">
+                                <a class="btn btn-outline-light me-2" asp-controller="Account" asp-action="Login">
+                                    Login
+                                </a>
+                            </li>
 
-                        <!-- REGISTER -->
-                        <li class="nav-item">
-                            <a class="btn btn-light" asp-controller="Account" asp-action="Register">
-                                Sign Up
-                            </a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="btn btn-light" asp-controller="Account" asp-action="Register">
+                                    Sign Up
+                                </a>
+                            </li>
+                        }
                     }
 
                 </ul>
