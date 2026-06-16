@@ -64,7 +64,7 @@ namespace ShopSphere.Controllers
             _context.Payments.Add(payment);
 
             // Update order status after payment
-            order.OrderStatus = "Paid";
+            order.OrderStatus = "Confirmed";
 
             _context.SaveChanges();
 
