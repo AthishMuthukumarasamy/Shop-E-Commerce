@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ShopSphere.DatabaseModels;
 
@@ -91,17 +92,42 @@ namespace ShopSphere.Controllers
         }
 
         // EDIT PRODUCT
+        //public IActionResult EditProduct(int id)
+        //{
+        //    if (!IsAdmin())
+        //        return RedirectToAction("Login", "Account");
+
+        //    var product = _context.Products.Find(id);
+        //    if (product == null)
+        //        return NotFound();
+
+        //    ViewBag.Categories = _context.Categories.ToList();
+        //    ViewBag.Brands = _context.Brands.ToList();
+
+        //    return View(product);
+        //}
+
         public IActionResult EditProduct(int id)
         {
             if (!IsAdmin())
                 return RedirectToAction("Login", "Account");
 
             var product = _context.Products.Find(id);
+
             if (product == null)
                 return NotFound();
 
-            ViewBag.Categories = _context.Categories.ToList();
-            ViewBag.Brands = _context.Brands.ToList();
+            ViewBag.Categories = new SelectList(
+                _context.Categories,
+                "CategoryId",
+                "CategoryName",
+                product.CategoryId);
+
+            ViewBag.Brands = new SelectList(
+                _context.Brands,
+                "BrandId",
+                "BrandName",
+                product.BrandId);
 
             return View(product);
         }
@@ -118,11 +144,12 @@ namespace ShopSphere.Controllers
             product.Description = model.Description;
             product.Price = model.Price;
             product.Stock = model.Stock;
-            product.CategoryId = model.CategoryId;
-            product.BrandId = model.BrandId;
-            product.RetailerId = model.RetailerId;
+            //product.CategoryId = model.CategoryId;
+            //product.BrandId = model.BrandId;
+            //product.RetailerId = model.RetailerId;
             product.Status = model.Status;
-            product.IsActive = model.IsActive;
+            //product.IsActive = model.IsActive;
+            //product.IsActive = model.IsActive;
 
             if (string.IsNullOrEmpty(product.Status))
             {
