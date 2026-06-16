@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ShopSphere.DatabaseModels.Order>
+
+<div class="container mt-4">
+    <h2 class="mb-4">My Orders</h2>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            No orders found.
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            @foreach (var order in Model)
+            {
+                <div class="col-md-6 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+
+                            <h5>Order #@order.OrderId</h5>
+
+                            <p>
+                                <strong>Date:</strong>
+                                @(order.OrderDate?.ToString("dd MMM yyyy"))
+                            </p>
+
+                            <p>
+                                <strong>Status:</strong>
+                                <span class="badge bg-warning text-dark">
+                                    @order.OrderStatus
+                                </span>
+                            </p>
+
+                            <p>
+                                <strong>Total:</strong>
+                                ₹@order.TotalAmount
+                            </p>
+
+                            <a asp-action="Details"
+                               asp-route-id="@order.OrderId"
+                               class="btn btn-primary">
+                                View Details
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>

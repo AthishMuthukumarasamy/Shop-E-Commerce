@@ -1,0 +1,107 @@
+﻿@model ShopSphere.DatabaseModels.User
+
+@{
+    ViewData["Title"] = "My Profile";
+}
+
+<div class="container mt-5">
+
+    <div class="card shadow-lg border-0">
+
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0">My Profile</h3>
+        </div>
+
+        <div class="card-body">
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">
+                    Name
+                </div>
+                <div class="col-md-9">
+                    @Model.Name
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">
+                    Email
+                </div>
+                <div class="col-md-9">
+                    @Model.Email
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">
+                    Role
+                </div>
+                <div class="col-md-9">
+                    <span class="badge bg-success">
+                        @Model.Role
+                    </span>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">
+                    Phone
+                </div>
+                <div class="col-md-9">
+                    @(string.IsNullOrEmpty(Model.MobileNo)
+                        ? "Not Available"
+                        : Model.MobileNo)
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">
+                    Address
+                </div>
+                <div class="col-md-9">
+                    @(string.IsNullOrEmpty(Model.Address)
+                        ? "Not Available"
+                        : Model.Address)
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">
+                    Joined On
+                </div>
+                <div class="col-md-9">
+                    @Model.CreatedDate?.ToString("dd MMM yyyy")
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card-footer text-end">
+
+            <a asp-controller="Home"
+               asp-action="Index"
+               class="btn btn-secondary">
+                Back
+            </a>
+
+            <a asp-controller="Account"
+               asp-action="Logout"
+               class="btn btn-danger">
+                Logout
+            </a>
+
+        </div>
+
+    </div>
+
+</div>

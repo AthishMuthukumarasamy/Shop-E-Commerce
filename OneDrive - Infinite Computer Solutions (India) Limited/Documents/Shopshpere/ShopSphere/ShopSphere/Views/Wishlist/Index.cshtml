@@ -1,0 +1,69 @@
+﻿@model IEnumerable<ShopSphere.DatabaseModels.Wishlist>
+
+@{
+    ViewData["Title"] = "My Wishlist";
+}
+
+<div class="container mt-4">
+
+    <h2 class="mb-4">My Wishlist</h2>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            Your wishlist is empty.
+        </div>
+    }
+    else
+    {
+        <div class="row">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 mb-4">
+
+                    <div class="card shadow-sm h-100">
+
+                        <img src="@(item.Product?.ProductImages?.FirstOrDefault()?.ImageUrl ?? "/images/no-image.png")"
+                             class="card-img-top"
+                             style="height:250px; object-fit:cover;" />
+
+                        <div class="card-body">
+
+                            <h5 class="card-title">
+                                @item.Product?.ProductName
+                            </h5>
+
+                            <p class="text-success fw-bold">
+                                ₹@item.Product?.Price
+                            </p>
+
+                            <p>
+                                Added:
+                                @(item.AddedDate?.ToString("dd MMM yyyy"))
+                            </p>
+
+                            <a asp-controller="Products"
+                               asp-action="Details"
+                               asp-route-id="@item.ProductId"
+                               class="btn btn-primary btn-sm">
+                                View Product
+                            </a>
+
+                            <a asp-action="Remove"
+                               asp-route-id="@item.WishlistId"
+                               class="btn btn-danger btn-sm">
+                                Remove
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            }
+
+        </div>
+    }
+
+</div>

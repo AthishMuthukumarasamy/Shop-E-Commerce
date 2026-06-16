@@ -1,0 +1,61 @@
+﻿@model ShopSphere.DatabaseModels.Order
+
+@{
+    ViewData["Title"] = "Payment";
+}
+
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h3>Payment</h3>
+        </div>
+
+        <div class="card-body">
+
+            <h5>Order Information</h5>
+
+            <p><strong>Order ID:</strong> #@Model.OrderId</p>
+            <p><strong>Total Amount:</strong> ₹@Model.TotalAmount</p>
+
+            <hr />
+
+            <form asp-action="ProcessPayment" method="post">
+
+                <input type="hidden"
+                       name="orderId"
+                       value="@Model.OrderId" />
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        Select Payment Method
+                    </label>
+
+                    <select name="paymentMethod"
+                            class="form-select"
+                            required>
+                        <option value="">Choose</option>
+                        <option value="Cash On Delivery">
+                            Cash On Delivery
+                        </option>
+                        <option value="UPI">
+                            UPI
+                        </option>
+                        <option value="Credit Card">
+                            Credit Card
+                        </option>
+                        <option value="Debit Card">
+                            Debit Card
+                        </option>
+                    </select>
+                </div>
+
+                <button type="submit"
+                        class="btn btn-success">
+                    Pay Now
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+﻿@model IEnumerable<ShopSphere.DatabaseModels.Payment>
+
+@{
+    ViewData["Title"] = "My Payments";
+}
+
+<div class="container mt-4">
+
+    <h2 class="mb-4">Payment History</h2>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            No payments found.
+        </div>
+    }
+    else
+    {
+        <table class="table table-bordered table-hover">
+
+            <thead class="table-dark">
+                <tr>
+                    <th>Payment ID</th>
+                    <th>Order ID</th>
+                    <th>Amount</th>
+                    <th>Method</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var payment in Model)
+                {
+                    <tr>
+                        <td>@payment.PaymentId</td>
+
+                        <td>
+                            #@payment.OrderId
+                        </td>
+
+                        <td>
+                            ₹@payment.Amount
+                        </td>
+
+                        <td>
+                            @payment.PaymentMethod
+                        </td>
+
+                        <td>
+                            <span class="badge bg-success">
+                                @payment.PaymentStatus
+                            </span>
+                        </td>
+
+                        <td>
+                            @(payment.PaymentDate?.ToString("dd MMM yyyy"))
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    }
+
+</div>
