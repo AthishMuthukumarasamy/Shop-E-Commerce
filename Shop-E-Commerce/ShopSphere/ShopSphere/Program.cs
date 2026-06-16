@@ -3,17 +3,21 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ---------------- MVC ----------------
+// MVC
 builder.Services.AddControllersWithViews();
 
-// ---------------- DATABASE ----------------
+// Swagger
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+// DB
 builder.Services.AddDbContext<ShoppDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")
     )
 );
 
-// ---------------- SESSION ----------------
+// Session
 builder.Services.AddDistributedMemoryCache();
 
 builder.Services.AddSession(options =>
@@ -23,30 +27,30 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 
-// ---------------- AUTH (optional but good practice) ----------------
+// Auth
 builder.Services.AddAuthentication();
 builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
-// ---------------- PIPELINE ----------------
-if (!app.Environment.IsDevelopment())
+// Swagger (IMPORTANT)
+if (app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Home/Error");
-    app.UseHsts();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
+// Pipeline
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
 
-
-app.UseSession();          // MUST be before authorization/authentication
-app.UseAuthentication();   
+app.UseSession();
+app.UseAuthentication();
 app.UseAuthorization();
 
-// ---------------- ROUTES ----------------
+// Routes
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}"

@@ -80,9 +80,7 @@ namespace ShopSphere.Controllers
             if (!IsAdmin())
                 return RedirectToAction("Login", "Account");
 
-            // FIX: use real admin session or remove retailer dependency
-            product.RetailerId = 0; // or set null if DB allows
-
+            product.RetailerId = 1; // FIX HERE
             product.Status = "Approved";
             product.CreatedDate = DateTime.Now;
             product.IsActive = true;
