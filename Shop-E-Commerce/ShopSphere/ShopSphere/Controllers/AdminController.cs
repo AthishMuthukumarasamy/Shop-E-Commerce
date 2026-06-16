@@ -99,11 +99,10 @@ namespace ShopSphere.Controllers
             if (!IsAdmin())
                 return RedirectToAction("Login", "Account");
 
-<<<<<<< HEAD
+
             product.RetailerId = 1;
-=======
-            product.RetailerId = 1; // FIX HERE
->>>>>>> 386dc96a3ce8a8c1edbd5488a021859efc3440ca
+
+
             product.Status = "Approved";
             product.CreatedDate = DateTime.Now;
             product.IsActive = true;
@@ -157,7 +156,7 @@ namespace ShopSphere.Controllers
             return RedirectToAction("Products");
         }
 
-<<<<<<< HEAD
+
         // EDIT PRODUCT
         //public IActionResult EditProduct(int id)
         //{
@@ -174,9 +173,8 @@ namespace ShopSphere.Controllers
         //    return View(product);
         //}
 
-=======
         // EDIT PRODUCT (GET)
->>>>>>> 386dc96a3ce8a8c1edbd5488a021859efc3440ca
+
         public IActionResult EditProduct(int id)
         {
             if (!IsAdmin())
@@ -222,17 +220,14 @@ namespace ShopSphere.Controllers
             product.Description = model.Description;
             product.Price = model.Price;
             product.Stock = model.Stock;
-<<<<<<< HEAD
+
             //product.CategoryId = model.CategoryId;
             //product.BrandId = model.BrandId;
             //product.RetailerId = model.RetailerId;
             product.Status = model.Status;
             //product.IsActive = model.IsActive;
             //product.IsActive = model.IsActive;
-=======
-            product.CategoryId = categoryId;
-            product.BrandId = brandId;
->>>>>>> 386dc96a3ce8a8c1edbd5488a021859efc3440ca
+    
 
             _context.SaveChanges();
 
