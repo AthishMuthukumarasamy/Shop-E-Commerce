@@ -8,7 +8,7 @@
 
     <h2>Add Product</h2>
 
-    <form asp-action="Create" method="post">
+    <form asp-action="Create" method="post" enctype="multipart/form-data">
 
         <div class="mb-2">
             <label>Name</label>
@@ -48,6 +48,14 @@
                     <option value="@b.BrandId">@b.BrandName</option>
                 }
             </select>
+        </div>
+
+        <div class="mb-2">
+            <label>Product Image</label>
+            <input type="file"
+                   name="productImage"
+                   class="form-control"
+                   accept=".jpg,.jpeg,.png" />
         </div>
 
         <button class="btn btn-success">Create</button>

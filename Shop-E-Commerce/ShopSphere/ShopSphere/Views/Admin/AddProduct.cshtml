@@ -14,7 +14,7 @@
 
         <div class="card-body">
 
-            <form asp-action="AddProduct" method="post">
+            <form asp-action="AddProduct" method="post" enctype="multipart/form-data">
 
                 <div class="mb-2">
                     <label>Product Name</label>
@@ -61,6 +61,11 @@
                 <!-- default values -->
                 <input asp-for="Status" type="hidden" value="Pending" />
                 <input asp-for="IsActive" type="hidden" value="true" />
+
+                <div class="mb-2">
+                    <label>Product Image</label>
+                    <input type="file" name="productImage" class="form-control" accept=".jpg,.jpeg,.png" />
+                </div>
 
                 <button type="submit" class="btn btn-success mt-3">
                     Save

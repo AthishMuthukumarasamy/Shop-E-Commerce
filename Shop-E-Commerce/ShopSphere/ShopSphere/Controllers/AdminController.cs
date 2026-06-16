@@ -7,11 +7,15 @@ namespace ShopSphere.Controllers
 {
     public class AdminController : Controller
     {
+        private readonly IWebHostEnvironment _environment;
         private readonly ShoppDbContext _context;
 
-        public AdminController(ShoppDbContext context)
+        public AdminController(
+    ShoppDbContext context,
+    IWebHostEnvironment environment)
         {
             _context = context;
+            _environment = environment;
         }
 
         // SECURITY CHECK METHOD
@@ -39,6 +43,7 @@ namespace ShopSphere.Controllers
                 .Include(p => p.Category)
                 .Include(p => p.Brand)
                 .Include(p => p.Retailer)
+                .Include(p => p.ProductImages)
                 .ToList();
 
             return View(products);
@@ -75,18 +80,67 @@ namespace ShopSphere.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddProduct(Product product)
+        public IActionResult AddProduct(Product product, IFormFile productImage)
         {
+            //if (!IsAdmin())
+            //    return RedirectToAction("Login", "Account");
+
+            //product.RetailerId = 1; 
+            //product.Status = "Approved";
+            //product.CreatedDate = DateTime.Now;
+            //product.IsActive = true;
+
+            //_context.Products.Add(product);
+            //_context.SaveChanges();
+
+            //return RedirectToAction("Products");
+
             if (!IsAdmin())
                 return RedirectToAction("Login", "Account");
 
-            product.RetailerId = 1; 
+            product.RetailerId = 1;
             product.Status = "Approved";
             product.CreatedDate = DateTime.Now;
             product.IsActive = true;
 
             _context.Products.Add(product);
             _context.SaveChanges();
+
+            if (productImage != null && productImage.Length > 0)
+            {
+                string uploadsFolder = Path.Combine(
+                    _environment.WebRootPath,
+                    "Images",
+                    "ProductImage");
+
+                if (!Directory.Exists(uploadsFolder))
+                {
+                    Directory.CreateDirectory(uploadsFolder);
+                }
+
+                string fileName =
+                    Guid.NewGuid().ToString() +
+                    Path.GetExtension(productImage.FileName);
+
+                string filePath = Path.Combine(
+                    uploadsFolder,
+                    fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    productImage.CopyTo(stream);
+                }
+
+                ProductImage image = new ProductImage
+                {
+                    ProductId = product.ProductId,
+                    ImageUrl = fileName,
+                    IsPrimary = true
+                };
+
+                _context.ProductImages.Add(image);
+                _context.SaveChanges();
+            }
 
             return RedirectToAction("Products");
         }

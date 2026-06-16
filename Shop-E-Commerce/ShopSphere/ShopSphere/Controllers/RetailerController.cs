@@ -6,11 +6,15 @@ namespace ShopSphere.Controllers
 {
     public class RetailerController : Controller
     {
+        private readonly IWebHostEnvironment _environment;
         private readonly ShoppDbContext _context;
 
-        public RetailerController(ShoppDbContext context)
+        public RetailerController(
+            ShoppDbContext context,
+            IWebHostEnvironment environment)
         {
             _context = context;
+            _environment = environment;
         }
 
         // SESSION HELPER
@@ -42,6 +46,7 @@ namespace ShopSphere.Controllers
             var products = _context.Products
                 .Include(p => p.Category)
                 .Include(p => p.Brand)
+                .Include(p => p.ProductImages)
                 .Where(p => p.RetailerId == userId)
                 .ToList();
 
@@ -58,7 +63,7 @@ namespace ShopSphere.Controllers
 
         // CREATE (POST)
         [HttpPost]
-        public IActionResult Create(Product product)
+        public IActionResult Create(Product product, IFormFile productImage)
         {
             int userId = GetUserId();
 
@@ -72,6 +77,42 @@ namespace ShopSphere.Controllers
 
             _context.Products.Add(product);
             _context.SaveChanges();
+
+            if (productImage != null && productImage.Length > 0)
+            {
+                string uploadsFolder = Path.Combine(
+                    _environment.WebRootPath,
+                    "Images",
+                    "ProductImage");
+
+                if (!Directory.Exists(uploadsFolder))
+                {
+                    Directory.CreateDirectory(uploadsFolder);
+                }
+
+                string fileName =
+                    Guid.NewGuid().ToString() +
+                    Path.GetExtension(productImage.FileName);
+
+                string filePath = Path.Combine(
+                    uploadsFolder,
+                    fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    productImage.CopyTo(stream);
+                }
+
+                ProductImage image = new ProductImage
+                {
+                    ProductId = product.ProductId,
+                    ImageUrl = fileName,
+                    IsPrimary = true
+                };
+
+                _context.ProductImages.Add(image);
+                _context.SaveChanges();
+            }
 
             return RedirectToAction("MyProducts");
         }
