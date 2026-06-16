@@ -24,7 +24,12 @@
 
                     <div class="card shadow-sm h-100">
 
-                        <img src="@(item.Product?.ProductImages?.FirstOrDefault()?.ImageUrl ?? "/images/no-image.png")"
+                        @{
+                            var imageName = item.Product?.ProductImages?.FirstOrDefault()?.ImageUrl
+                                            ?? "no-image.jpg";
+                        }
+
+                        <img src="~/Images/ProductImage/@imageName"
                              class="card-img-top"
                              style="height:250px; object-fit:cover;" />
 

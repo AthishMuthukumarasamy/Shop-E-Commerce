@@ -25,6 +25,11 @@ namespace ShopSphere.Controllers
 
             var compareList = _context.CompareProducts
                 .Include(c => c.Product)
+                    .ThenInclude(p => p.Category)
+                .Include(c => c.Product)
+                    .ThenInclude(p => p.Brand)
+                .Include(c => c.Product)
+                    .ThenInclude(p => p.ProductImages)
                 .Where(c => c.UserId == userId)
                 .ToList();
 

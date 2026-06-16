@@ -25,6 +25,7 @@ namespace ShopSphere.Controllers
 
             var wishlist = _context.Wishlists
                 .Include(w => w.Product)
+                .ThenInclude(p => p.ProductImages)
                 .Where(w => w.UserId == userId)
                 .ToList();
 
