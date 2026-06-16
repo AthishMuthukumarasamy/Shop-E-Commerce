@@ -18,13 +18,13 @@ namespace ShopSphere.Controllers
             _environment = environment;
         }
 
-        // SECURITY CHECK METHOD
+        // SECURITY CHECK
         private bool IsAdmin()
         {
             return HttpContext.Session.GetString("Role") == "Admin";
         }
 
-        // ADMIN DASHBOARD
+        // DASHBOARD
         public IActionResult Index()
         {
             if (!IsAdmin())
@@ -49,7 +49,7 @@ namespace ShopSphere.Controllers
             return View(products);
         }
 
-        // VIEW PRODUCT DETAILS
+        // VIEW PRODUCT
         public IActionResult ViewProduct(int id)
         {
             if (!IsAdmin())
@@ -79,6 +79,7 @@ namespace ShopSphere.Controllers
             return View();
         }
 
+        // ADD PRODUCT (POST)
         [HttpPost]
         public IActionResult AddProduct(Product product, IFormFile productImage)
         {
@@ -98,10 +99,21 @@ namespace ShopSphere.Controllers
             if (!IsAdmin())
                 return RedirectToAction("Login", "Account");
 
+<<<<<<< HEAD
             product.RetailerId = 1;
+=======
+            product.RetailerId = 1; // FIX HERE
+>>>>>>> 386dc96a3ce8a8c1edbd5488a021859efc3440ca
             product.Status = "Approved";
             product.CreatedDate = DateTime.Now;
             product.IsActive = true;
+
+            // VALIDATE FK BEFORE INSERT
+            if (!_context.Categories.Any(c => c.CategoryId == product.CategoryId))
+                return BadRequest("Invalid Category");
+
+            if (!_context.Brands.Any(b => b.BrandId == product.BrandId))
+                return BadRequest("Invalid Brand");
 
             _context.Products.Add(product);
             _context.SaveChanges();
@@ -145,6 +157,7 @@ namespace ShopSphere.Controllers
             return RedirectToAction("Products");
         }
 
+<<<<<<< HEAD
         // EDIT PRODUCT
         //public IActionResult EditProduct(int id)
         //{
@@ -161,6 +174,9 @@ namespace ShopSphere.Controllers
         //    return View(product);
         //}
 
+=======
+        // EDIT PRODUCT (GET)
+>>>>>>> 386dc96a3ce8a8c1edbd5488a021859efc3440ca
         public IActionResult EditProduct(int id)
         {
             if (!IsAdmin())
@@ -186,10 +202,18 @@ namespace ShopSphere.Controllers
             return View(product);
         }
 
+        // EDIT PRODUCT (POST) - FIXED
         [HttpPost]
         public IActionResult EditProduct(Product model)
         {
-            var product = _context.Products.FirstOrDefault(x => x.ProductId == model.ProductId);
+            if (!IsAdmin())
+                return RedirectToAction("Login", "Account");
+
+            int id = model.ProductId;
+            int categoryId = model.CategoryId;
+            int brandId = model.BrandId;
+
+            var product = _context.Products.FirstOrDefault(p => p.ProductId == id);
 
             if (product == null)
                 return NotFound();
@@ -198,23 +222,23 @@ namespace ShopSphere.Controllers
             product.Description = model.Description;
             product.Price = model.Price;
             product.Stock = model.Stock;
+<<<<<<< HEAD
             //product.CategoryId = model.CategoryId;
             //product.BrandId = model.BrandId;
             //product.RetailerId = model.RetailerId;
             product.Status = model.Status;
             //product.IsActive = model.IsActive;
             //product.IsActive = model.IsActive;
+=======
+            product.CategoryId = categoryId;
+            product.BrandId = brandId;
+>>>>>>> 386dc96a3ce8a8c1edbd5488a021859efc3440ca
 
-            if (string.IsNullOrEmpty(product.Status))
-            {
-                product.Status = "Pending";
-            }
             _context.SaveChanges();
 
             return RedirectToAction("Products");
         }
-
-        // DELETE PRODUCT
+        // DELETE PRODUCT (CONFIRM PAGE)
         public IActionResult DeleteProduct(int id)
         {
             if (!IsAdmin())
@@ -231,21 +255,31 @@ namespace ShopSphere.Controllers
             return View(product);
         }
 
+        // DELETE CONFIRMED (SAFE DELETE)
         [HttpPost, ActionName("DeleteProduct")]
         public IActionResult DeleteConfirmed(int id)
         {
-            var product = _context.Products.Find(id);
+            if (!IsAdmin())
+                return RedirectToAction("Login", "Account");
+
+            var product = _context.Products
+                .Include(p => p.ProductImages)
+                .FirstOrDefault(p => p.ProductId == id);
 
             if (product != null)
             {
-                // STEP 1: delete child records first
-                var images = _context.ProductImages
-                    .Where(x => x.ProductId == id)
-                    .ToList();
+                // delete child tables first (prevents FK errors)
+                _context.ProductImages.RemoveRange(product.ProductImages);
 
-                _context.ProductImages.RemoveRange(images);
+                _context.CartItems.RemoveRange(
+                    _context.CartItems.Where(x => x.ProductId == id));
 
-                // STEP 2: delete product
+                _context.Wishlists.RemoveRange(
+                    _context.Wishlists.Where(x => x.ProductId == id));
+
+                _context.OrderDetails.RemoveRange(
+                    _context.OrderDetails.Where(x => x.ProductId == id));
+
                 _context.Products.Remove(product);
 
                 _context.SaveChanges();

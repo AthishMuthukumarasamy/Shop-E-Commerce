@@ -94,5 +94,95 @@ namespace ShopSphere.Controllers
 
             return View(user);
         }
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult ForgotPassword(string email)
+        {
+            var user = _context.Users.FirstOrDefault(x => x.Email == email);
+
+            if (user == null)
+            {
+                ViewBag.Error = "Email not found";
+                return View();
+            }
+
+            // generate OTP
+            var otpCode = new Random().Next(100000, 999999).ToString();
+
+            var otp = new Otp
+            {
+                UserId = user.UserId,
+                OtpCode = otpCode,
+                ExpiryTime = DateTime.Now.AddMinutes(5),
+                IsUsed = false
+            };
+
+            _context.Otps.Add(otp);
+            _context.SaveChanges();
+
+            // TEMP (replace with email sending later)
+            TempData["UserId"] = user.UserId;
+            TempData["Otp"] = otpCode;
+
+            return RedirectToAction("VerifyOtp");
+        }
+        public IActionResult VerifyOtp()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult VerifyOtp(int userId, string otpCode)
+        {
+            var otp = _context.Otps
+                .Where(x => x.UserId == userId
+                         && x.OtpCode == otpCode
+                         && x.IsUsed == false
+                         && x.ExpiryTime > DateTime.Now)
+                .OrderByDescending(x => x.OtpId)
+                .FirstOrDefault();
+
+            if (otp == null)
+            {
+                ViewBag.Error = "Invalid or expired OTP";
+                return View();
+            }
+
+            otp.IsUsed = true;
+            _context.SaveChanges();
+
+            // store user for reset
+            TempData["UserId"] = userId;
+
+            return RedirectToAction("ResetPassword");
+        }
+        public IActionResult ResetPassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult ResetPassword(string newPassword)
+        {
+            if (TempData["UserId"] == null)
+                return RedirectToAction("Login");
+
+            int userId = Convert.ToInt32(TempData["UserId"]);
+
+            var user = _context.Users.FirstOrDefault(x => x.UserId == userId);
+
+            if (user == null)
+                return NotFound();
+
+            //  later replace with hashing
+            user.PasswordHash = newPassword;
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Login");
+        }
+
+
     }
 }

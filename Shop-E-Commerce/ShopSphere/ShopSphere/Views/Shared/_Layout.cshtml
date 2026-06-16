@@ -191,20 +191,26 @@
 
                             <ul class="dropdown-menu dropdown-menu-end">
 
+                                <!-- PROFILE (ALL USERS) -->
                                 <li>
                                     <a class="dropdown-item" asp-controller="Account" asp-action="Profile">
                                         My Profile
                                     </a>
                                 </li>
 
-                                <li>
-                                    <a class="dropdown-item" asp-controller="Wishlist" asp-action="Index">
-                                        Wishlist
-                                    </a>
-                                </li>
+                                <!-- WISHLIST ONLY FOR NORMAL USER -->
+                                @if (userRole == "User")
+                                {
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="Wishlist" asp-action="Index">
+                                            Wishlist
+                                        </a>
+                                    </li>
+                                }
 
                                 <li><hr class="dropdown-divider" /></li>
 
+                                <!-- LOGOUT -->
                                 <li>
                                     <a class="dropdown-item text-danger" asp-controller="Account" asp-action="Logout">
                                         Logout
