@@ -7349,23 +7349,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\rekashinig\\.nuget\\packages\\": {},
+    "C:\\Users\\hariharasudana\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Final project\\Shop-E-Commerce\\ShopSphere\\ShopSphere\\ShopSphere.csproj",
+      "projectUniqueName": "C:\\Project\\Shop-E-Commerce\\ShopSphere\\ShopSphere\\ShopSphere.csproj",
       "projectName": "ShopSphere",
-      "projectPath": "C:\\Final project\\Shop-E-Commerce\\ShopSphere\\ShopSphere\\ShopSphere.csproj",
-      "packagesPath": "C:\\Users\\rekashinig\\.nuget\\packages\\",
-      "outputPath": "C:\\Final project\\Shop-E-Commerce\\ShopSphere\\ShopSphere\\obj\\",
+      "projectPath": "C:\\Project\\Shop-E-Commerce\\ShopSphere\\ShopSphere\\ShopSphere.csproj",
+      "packagesPath": "C:\\Users\\hariharasudana\\.nuget\\packages\\",
+      "outputPath": "C:\\Project\\Shop-E-Commerce\\ShopSphere\\ShopSphere\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\rekashinig\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\hariharasudana\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -7392,7 +7392,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "10.0.200"
     },
     "frameworks": {
       "net8.0": {
@@ -7432,7 +7432,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.312/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -90,10 +90,30 @@ namespace ShopSphere.Controllers
         [HttpPost]
         public IActionResult Edit(Product product)
         {
-            _context.Products.Update(product);
+
+            int userId = GetUserId();
+
+            var existingProduct = _context.Products
+                .FirstOrDefault(p => p.ProductId == product.ProductId
+                                  && p.RetailerId == userId);
+
+            if (existingProduct == null)
+                return NotFound();
+
+            existingProduct.ProductName = product.ProductName;
+            existingProduct.Description = product.Description;
+            existingProduct.Price = product.Price;
+            existingProduct.Stock = product.Stock;
+            existingProduct.CategoryId = product.CategoryId;
+            existingProduct.BrandId = product.BrandId;
+
             _context.SaveChanges();
 
             return RedirectToAction("MyProducts");
+            //_context.Products.Update(product);
+            //_context.SaveChanges();
+
+            //return RedirectToAction("MyProducts");
         }
 
         // DETAILS
