@@ -106,8 +106,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -116,14 +120,10 @@
               "RelativeDocumentMoniker": "ShopSphere\\Controllers\\RetailerController.cs",
               "ToolTip": "C:\\Project\\Shop-E-Commerce\\ShopSphere\\ShopSphere\\Controllers\\RetailerController.cs",
               "RelativeToolTip": "ShopSphere\\Controllers\\RetailerController.cs",
-              "ViewState": "AgIAAF8AAAAAAAAAAAAIwG8AAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAFQAAAAAAAAAAADwv28AAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-16T09:11:12.942Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
             },
             {
               "$type": "Document",
@@ -171,8 +171,7 @@
               "RelativeToolTip": "ShopSphere\\Controllers\\AdminController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAKMAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-16T07:44:51.608Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-16T07:44:51.608Z"
             },
             {
               "$type": "Document",
@@ -184,8 +183,7 @@
               "RelativeToolTip": "ShopSphere\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAB/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-06-15T17:12:43.772Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-15T17:12:43.772Z"
             },
             {
               "$type": "Document",
