@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace ShopSphere.DatabaseModels;
 
@@ -7,18 +8,24 @@ public partial class User
 {
     public int UserId { get; set; }
 
+    [Required(ErrorMessage = "Name is required")]
     public string Name { get; set; } = null!;
 
+    [Required(ErrorMessage = "Email is required")]
+    [EmailAddress(ErrorMessage = "Enter a valid email address")]
     public string Email { get; set; } = null!;
 
+    [Required(ErrorMessage = "Password is required")]
     public string PasswordHash { get; set; } = null!;
 
+    [Required(ErrorMessage = "Mobile number is required")]
     public string? MobileNo { get; set; }
 
+    [Required(ErrorMessage = "Address is required")]
     public string? Address { get; set; }
 
+    [Required(ErrorMessage = "Please select a role")]
     public string Role { get; set; } = null!;
-
     public DateTime? CreatedDate { get; set; }
 
     public virtual Cart? Cart { get; set; }

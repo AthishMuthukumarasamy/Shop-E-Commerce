@@ -10,9 +10,7 @@ namespace ShopSphere.Controllers
         private readonly IWebHostEnvironment _environment;
         private readonly ShoppDbContext _context;
 
-        public AdminController(
-    ShoppDbContext context,
-    IWebHostEnvironment environment)
+        public AdminController(ShoppDbContext context, IWebHostEnvironment environment)
         {
             _context = context;
             _environment = environment;
@@ -81,81 +79,54 @@ namespace ShopSphere.Controllers
 
         // ADD PRODUCT (POST)
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult AddProduct(Product product, IFormFile productImage)
         {
-            //if (!IsAdmin())
-            //    return RedirectToAction("Login", "Account");
-
-            //product.RetailerId = 1; 
-            //product.Status = "Approved";
-            //product.CreatedDate = DateTime.Now;
-            //product.IsActive = true;
-
-            //_context.Products.Add(product);
-            //_context.SaveChanges();
-
-            //return RedirectToAction("Products");
-
             if (!IsAdmin())
                 return RedirectToAction("Login", "Account");
 
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Categories = _context.Categories.ToList();
+                ViewBag.Brands = _context.Brands.ToList();
+                return View(product);
+            }
 
             product.RetailerId = 1;
-
-
-            product.Status = "Approved";
-            product.CreatedDate = DateTime.Now;
+            product.Status = "Pending";
             product.IsActive = true;
-
-            // VALIDATE FK BEFORE INSERT
-            if (!_context.Categories.Any(c => c.CategoryId == product.CategoryId))
-                return BadRequest("Invalid Category");
-
-            if (!_context.Brands.Any(b => b.BrandId == product.BrandId))
-                return BadRequest("Invalid Brand");
+            product.CreatedDate = DateTime.Now;
 
             _context.Products.Add(product);
             _context.SaveChanges();
 
+            // IMAGE SAFE CHECK
             if (productImage != null && productImage.Length > 0)
             {
-                string uploadsFolder = Path.Combine(
-                    _environment.WebRootPath,
-                    "Images",
-                    "ProductImage");
+                string folder = Path.Combine(_environment.WebRootPath, "Images/ProductImage");
+                Directory.CreateDirectory(folder);
 
-                if (!Directory.Exists(uploadsFolder))
-                {
-                    Directory.CreateDirectory(uploadsFolder);
-                }
+                string fileName = Guid.NewGuid() + Path.GetExtension(productImage.FileName);
+                string path = Path.Combine(folder, fileName);
 
-                string fileName =
-                    Guid.NewGuid().ToString() +
-                    Path.GetExtension(productImage.FileName);
-
-                string filePath = Path.Combine(
-                    uploadsFolder,
-                    fileName);
-
-                using (var stream = new FileStream(filePath, FileMode.Create))
+                using (var stream = new FileStream(path, FileMode.Create))
                 {
                     productImage.CopyTo(stream);
                 }
 
-                ProductImage image = new ProductImage
+                _context.ProductImages.Add(new ProductImage
                 {
                     ProductId = product.ProductId,
                     ImageUrl = fileName,
                     IsPrimary = true
-                };
+                });
 
-                _context.ProductImages.Add(image);
                 _context.SaveChanges();
             }
 
             return RedirectToAction("Products");
         }
-
+        // EDIT PRODUCT (GET)
         public IActionResult EditProduct(int id)
         {
             if (!IsAdmin())
@@ -181,18 +152,21 @@ namespace ShopSphere.Controllers
             return View(product);
         }
 
-        // EDIT PRODUCT (POST) 
+        // EDIT PRODUCT (POST)
         [HttpPost]
         public IActionResult EditProduct(Product model)
         {
             if (!IsAdmin())
                 return RedirectToAction("Login", "Account");
 
-            int id = model.ProductId;
-            int categoryId = model.CategoryId;
-            int brandId = model.BrandId;
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Categories = new SelectList(_context.Categories, "CategoryId", "CategoryName", model.CategoryId);
+                ViewBag.Brands = new SelectList(_context.Brands, "BrandId", "BrandName", model.BrandId);
+                return View(model);
+            }
 
-            var product = _context.Products.FirstOrDefault(p => p.ProductId == id);
+            var product = _context.Products.FirstOrDefault(p => p.ProductId == model.ProductId);
 
             if (product == null)
                 return NotFound();
@@ -201,14 +175,7 @@ namespace ShopSphere.Controllers
             product.Description = model.Description;
             product.Price = model.Price;
             product.Stock = model.Stock;
-
-            //product.CategoryId = model.CategoryId;
-            //product.BrandId = model.BrandId;
-            //product.RetailerId = model.RetailerId;
             product.Status = model.Status;
-            //product.IsActive = model.IsActive;
-            //product.IsActive = model.IsActive;
-    
 
             _context.SaveChanges();
 
@@ -232,7 +199,7 @@ namespace ShopSphere.Controllers
             return View(product);
         }
 
-        // DELETE CONFIRMED (SAFE DELETE)
+        // DELETE CONFIRMED
         [HttpPost, ActionName("DeleteProduct")]
         public IActionResult DeleteConfirmed(int id)
         {
@@ -245,7 +212,6 @@ namespace ShopSphere.Controllers
 
             if (product != null)
             {
-                // delete child tables first (prevents FK errors)
                 _context.ProductImages.RemoveRange(product.ProductImages);
 
                 _context.CartItems.RemoveRange(
