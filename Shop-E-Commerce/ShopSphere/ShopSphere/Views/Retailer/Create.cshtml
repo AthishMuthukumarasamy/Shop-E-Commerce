@@ -38,22 +38,26 @@
         <div class="mb-2">
             <label>Category</label>
             <select asp-for="CategoryId" class="form-control">
+                <option value="0">-- Select Category --</option>
                 @foreach (var c in ViewBag.Categories)
                 {
                     <option value="@c.CategoryId">@c.CategoryName</option>
                 }
             </select>
+            <span asp-validation-for="CategoryId" class="text-danger"></span>
             
         </div>
 
         <div class="mb-2">
             <label>Brand</label>
             <select asp-for="BrandId" class="form-control">
+                <option value="0">-- Select Brand --</option>
                 @foreach (var b in ViewBag.Brands)
                 {
                     <option value="@b.BrandId">@b.BrandName</option>
                 }
             </select>
+            <span asp-validation-for="BrandId" class="text-danger"></span>
             
         </div>
 

@@ -23,11 +23,12 @@ public partial class Product
     [Range(0, 99999, ErrorMessage = "Stock cannot be negative")]
     public int Stock { get; set; }
 
-    
+    [Range(1, int.MaxValue, ErrorMessage = "Please select a category")]
     public int CategoryId { get; set; }
-    
+
+    [Range(1, int.MaxValue, ErrorMessage = "Please select a brand")]
     public int BrandId { get; set; }
-    
+
     public int RetailerId { get; set; }
 
     [ValidateNever]

@@ -1,6 +1,5 @@
 ﻿@model ShopSphere.DatabaseModels.Product
 @using Microsoft.AspNetCore.Mvc.Rendering
-<div asp-validation-summary="All" class="text-danger"></div>
 
 @{
     ViewData["Title"] = "Edit Product";
@@ -18,7 +17,8 @@
 
             <form asp-action="EditProduct" asp-controller="Admin" method="post">
 
-                <!-- IMPORTANT: ID -->
+                <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
                 <input type="hidden" asp-for="ProductId" />
 
                 <!-- Product Name -->
@@ -49,27 +49,31 @@
                     <span asp-validation-for="Stock" class="text-danger"></span>
                 </div>
 
-                <!-- CATEGORY (FIX FOR INVALID CATEGORY ERROR) -->
+                <!-- Category -->
                 <div class="mb-3">
-                    <label class="form-label">Category</label>                    
+                    <label class="form-label">Category</label>
+
                     <select asp-for="CategoryId"
                             asp-items="ViewBag.Categories"
                             class="form-control">
                     </select>
-                    <span asp-validation-for="Category" class="text-danger"></span>
+
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
                 </div>
 
-                <!-- BRAND -->
+                <!-- Brand -->
                 <div class="mb-3">
                     <label class="form-label">Brand</label>
+
                     <select asp-for="BrandId"
                             asp-items="ViewBag.Brands"
                             class="form-control">
                     </select>
-                    <span asp-validation-for="Brand" class="text-danger"></span>
+
+                    <span asp-validation-for="BrandId" class="text-danger"></span>
                 </div>
 
-
+                <!-- Status -->
                 <div class="mb-3">
                     <label>Status</label>
 
@@ -78,10 +82,10 @@
                         <option value="Approved">Approved</option>
                         <option value="Rejected">Rejected</option>
                     </select>
+
                     <span asp-validation-for="Status" class="text-danger"></span>
                 </div>
 
-                <!-- SUBMIT -->
                 <button type="submit" class="btn btn-warning text-white">
                     Update Product
                 </button>
@@ -89,7 +93,9 @@
             </form>
 
         </div>
+
     </div>
+
 </div>
 
 @section Scripts {

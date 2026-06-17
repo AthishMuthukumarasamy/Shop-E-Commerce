@@ -1,5 +1,4 @@
 ﻿@model ShopSphere.DatabaseModels.Product
-<div asp-validation-summary="All" class="text-danger"></div>
 
 @{
     ViewData["Title"] = "Add Product";
@@ -17,68 +16,82 @@
 
             <form asp-action="AddProduct" method="post" enctype="multipart/form-data">
 
-                <div class="mb-2">
-                    <label>Product Name</label>
+                <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+                <div class="mb-3">
+                    <label asp-for="ProductName"></label>
                     <input asp-for="ProductName" class="form-control" />
                     <span asp-validation-for="ProductName" class="text-danger"></span>
                 </div>
 
-                <div class="mb-2">
-                    <label>Description</label>
+                <div class="mb-3">
+                    <label asp-for="Description"></label>
                     <textarea asp-for="Description" class="form-control"></textarea>
                     <span asp-validation-for="Description" class="text-danger"></span>
                 </div>
 
-                <div class="mb-2">
-                    <label>Price</label>
+                <div class="mb-3">
+                    <label asp-for="Price"></label>
                     <input asp-for="Price" class="form-control" />
                     <span asp-validation-for="Price" class="text-danger"></span>
                 </div>
 
-                <div class="mb-2">
-                    <label>Stock</label>
+                <div class="mb-3">
+                    <label asp-for="Stock"></label>
                     <input asp-for="Stock" class="form-control" />
                     <span asp-validation-for="Stock" class="text-danger"></span>
                 </div>
 
-                <div class="mb-2">
+                <div class="mb-3">
                     <label>Category</label>
                     <select asp-for="CategoryId" class="form-control">
+                        <option value="0">-- Select Category --</option>
+
                         @foreach (var c in ViewBag.Categories)
                         {
-                            <option value="@c.CategoryId">@c.CategoryName</option>
+                            <option value="@c.CategoryId">
+                                @c.CategoryName
+                            </option>
                         }
                     </select>
-                    <span asp-validation-for="Category" class="text-danger"></span>
+
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
                 </div>
 
-                <div class="mb-2">
+                <div class="mb-3">
                     <label>Brand</label>
                     <select asp-for="BrandId" class="form-control">
+                        <option value="0">-- Select Brand --</option>
+
                         @foreach (var b in ViewBag.Brands)
                         {
-                            <option value="@b.BrandId">@b.BrandName</option>
+                            <option value="@b.BrandId">
+                                @b.BrandName
+                            </option>
                         }
                     </select>
-                    <span asp-validation-for="Brand" class="text-danger"></span>
+
+                    <span asp-validation-for="BrandId" class="text-danger"></span>
                 </div>
 
                 <input asp-for="RetailerId" type="hidden" value="1" />
-
-                <!-- default values -->
                 <input asp-for="Status" type="hidden" value="Pending" />
                 <input asp-for="IsActive" type="hidden" value="true" />
 
-                <div class="mb-2">
+                <div class="mb-3">
                     <label>Product Image</label>
-                    <input type="file" name="productImage" class="form-control" accept=".jpg,.jpeg,.png" />
+
+                    <input type="file"
+                           name="productImage"
+                           class="form-control"
+                           accept=".jpg,.jpeg,.png" />
+
                     <span class="text-danger">
                         @Html.ValidationMessage("productImage")
                     </span>
-                    
                 </div>
 
-                <button type="submit" class="btn btn-success mt-3">
+                <button type="submit" class="btn btn-success">
                     Save
                 </button>
 
@@ -89,7 +102,9 @@
     </div>
 
 </div>
-@section Scripts {
+
+@section Scripts
+{
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
