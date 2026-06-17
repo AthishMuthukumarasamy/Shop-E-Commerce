@@ -156,25 +156,6 @@ namespace ShopSphere.Controllers
             return RedirectToAction("Products");
         }
 
-
-        // EDIT PRODUCT
-        //public IActionResult EditProduct(int id)
-        //{
-        //    if (!IsAdmin())
-        //        return RedirectToAction("Login", "Account");
-
-        //    var product = _context.Products.Find(id);
-        //    if (product == null)
-        //        return NotFound();
-
-        //    ViewBag.Categories = _context.Categories.ToList();
-        //    ViewBag.Brands = _context.Brands.ToList();
-
-        //    return View(product);
-        //}
-
-        // EDIT PRODUCT (GET)
-
         public IActionResult EditProduct(int id)
         {
             if (!IsAdmin())
@@ -200,7 +181,7 @@ namespace ShopSphere.Controllers
             return View(product);
         }
 
-        // EDIT PRODUCT (POST) - FIXED
+        // EDIT PRODUCT (POST) 
         [HttpPost]
         public IActionResult EditProduct(Product model)
         {
@@ -233,6 +214,7 @@ namespace ShopSphere.Controllers
 
             return RedirectToAction("Products");
         }
+
         // DELETE PRODUCT (CONFIRM PAGE)
         public IActionResult DeleteProduct(int id)
         {

@@ -20,9 +20,6 @@
                 <!-- IMPORTANT: ID -->
                 <input type="hidden" asp-for="ProductId" />
 
-                <!-- OPTIONAL: Status -->
-                <input type="hidden" asp-for="Status" />
-
                 <!-- Product Name -->
                 <div class="mb-3">
                     <label class="form-label">Product Name</label>
@@ -71,6 +68,17 @@
                     <select asp-for="BrandId"
                             asp-items="ViewBag.Brands"
                             class="form-control">
+                    </select>
+                </div>
+
+
+                <div class="mb-3">
+                    <label>Status</label>
+
+                    <select asp-for="Status" class="form-control">
+                        <option value="Pending">Pending</option>
+                        <option value="Approved">Approved</option>
+                        <option value="Rejected">Rejected</option>
                     </select>
                 </div>
 
