@@ -83,77 +83,87 @@ namespace ShopSphere.Controllers
         [HttpPost]
         public IActionResult AddProduct(Product product, IFormFile productImage)
         {
-            //if (!IsAdmin())
-            //    return RedirectToAction("Login", "Account");
-
-            //product.RetailerId = 1; 
-            //product.Status = "Approved";
-            //product.CreatedDate = DateTime.Now;
-            //product.IsActive = true;
-
-            //_context.Products.Add(product);
-            //_context.SaveChanges();
-
-            //return RedirectToAction("Products");
-
             if (!IsAdmin())
                 return RedirectToAction("Login", "Account");
 
-
-            product.RetailerId = 1;
-
-
-            product.Status = "Approved";
-            product.CreatedDate = DateTime.Now;
-            product.IsActive = true;
-
-            // VALIDATE FK BEFORE INSERT
-            if (!_context.Categories.Any(c => c.CategoryId == product.CategoryId))
-                return BadRequest("Invalid Category");
-
-            if (!_context.Brands.Any(b => b.BrandId == product.BrandId))
-                return BadRequest("Invalid Brand");
-
-            _context.Products.Add(product);
-            _context.SaveChanges();
-
-            if (productImage != null && productImage.Length > 0)
+            if (!ModelState.IsValid)
             {
-                string uploadsFolder = Path.Combine(
-                    _environment.WebRootPath,
-                    "Images",
-                    "ProductImage");
+                ViewBag.Categories = _context.Categories.ToList();
+                ViewBag.Brands = _context.Brands.ToList();
 
-                if (!Directory.Exists(uploadsFolder))
-                {
-                    Directory.CreateDirectory(uploadsFolder);
-                }
-
-                string fileName =
-                    Guid.NewGuid().ToString() +
-                    Path.GetExtension(productImage.FileName);
-
-                string filePath = Path.Combine(
-                    uploadsFolder,
-                    fileName);
-
-                using (var stream = new FileStream(filePath, FileMode.Create))
-                {
-                    productImage.CopyTo(stream);
-                }
-
-                ProductImage image = new ProductImage
-                {
-                    ProductId = product.ProductId,
-                    ImageUrl = fileName,
-                    IsPrimary = true
-                };
-
-                _context.ProductImages.Add(image);
-                _context.SaveChanges();
+                return View(product);
             }
 
-            return RedirectToAction("Products");
+            if (productImage == null || productImage.Length == 0)
+            {
+                ModelState.AddModelError("productImage", "Product image is required");
+
+                ViewBag.Categories = _context.Categories.ToList();
+                ViewBag.Brands = _context.Brands.ToList();
+
+                return View(product);
+            }
+
+            try
+            {
+                product.RetailerId = 1;
+                product.Status = "Approved";
+                product.CreatedDate = DateTime.Now;
+                product.IsActive = true;
+
+                _context.Products.Add(product);
+                _context.SaveChanges();
+
+                // Image Upload Code Here
+
+                if (productImage != null && productImage.Length > 0)
+                {
+                    string uploadsFolder = Path.Combine(
+                        _environment.WebRootPath,
+                        "Images",
+                        "ProductImage");
+
+                    if (!Directory.Exists(uploadsFolder))
+                    {
+                        Directory.CreateDirectory(uploadsFolder);
+                    }
+
+                    string fileName =
+                        Guid.NewGuid().ToString() +
+                        Path.GetExtension(productImage.FileName);
+
+                    string filePath = Path.Combine(
+                        uploadsFolder,
+                        fileName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        productImage.CopyTo(stream);
+                    }
+
+                    ProductImage image = new ProductImage
+                    {
+                        ProductId = product.ProductId,
+                        ImageUrl = fileName,
+                        IsPrimary = true
+                    };
+
+                    _context.ProductImages.Add(image);
+                    _context.SaveChanges();
+                }
+
+
+                return RedirectToAction("Products");
+            }
+            catch (Exception)
+            {
+                ModelState.AddModelError("", "Error while saving product.");
+
+                ViewBag.Categories = _context.Categories.ToList();
+                ViewBag.Brands = _context.Brands.ToList();
+
+                return View(product);
+            }
         }
 
         public IActionResult EditProduct(int id)
@@ -188,31 +198,61 @@ namespace ShopSphere.Controllers
             if (!IsAdmin())
                 return RedirectToAction("Login", "Account");
 
-            int id = model.ProductId;
-            int categoryId = model.CategoryId;
-            int brandId = model.BrandId;
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Categories = new SelectList(
+                    _context.Categories,
+                    "CategoryId",
+                    "CategoryName",
+                    model.CategoryId);
 
-            var product = _context.Products.FirstOrDefault(p => p.ProductId == id);
+                ViewBag.Brands = new SelectList(
+                    _context.Brands,
+                    "BrandId",
+                    "BrandName",
+                    model.BrandId);
+
+                return View(model);
+            }
+
+            var product = _context.Products
+                .FirstOrDefault(p => p.ProductId == model.ProductId);
 
             if (product == null)
                 return NotFound();
 
-            product.ProductName = model.ProductName;
-            product.Description = model.Description;
-            product.Price = model.Price;
-            product.Stock = model.Stock;
+            try
+            {
+                product.ProductName = model.ProductName;
+                product.Description = model.Description;
+                product.Price = model.Price;
+                product.Stock = model.Stock;
+                product.CategoryId = model.CategoryId;
+                product.BrandId = model.BrandId;
+                product.Status = model.Status;
 
-            //product.CategoryId = model.CategoryId;
-            //product.BrandId = model.BrandId;
-            //product.RetailerId = model.RetailerId;
-            product.Status = model.Status;
-            //product.IsActive = model.IsActive;
-            //product.IsActive = model.IsActive;
-    
+                _context.SaveChanges();
 
-            _context.SaveChanges();
+                return RedirectToAction("Products");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", $"Error updating product: {ex.Message}");
 
-            return RedirectToAction("Products");
+                ViewBag.Categories = new SelectList(
+                    _context.Categories,
+                    "CategoryId",
+                    "CategoryName",
+                    model.CategoryId);
+
+                ViewBag.Brands = new SelectList(
+                    _context.Brands,
+                    "BrandId",
+                    "BrandName",
+                    model.BrandId);
+
+                return View(model);
+            }
         }
 
         // DELETE PRODUCT (CONFIRM PAGE)

@@ -1,4 +1,5 @@
 ﻿@model ShopSphere.DatabaseModels.Product
+<div asp-validation-summary="All" class="text-danger"></div>
 
 @{
     ViewData["Title"] = "Add Product";
@@ -19,21 +20,25 @@
                 <div class="mb-2">
                     <label>Product Name</label>
                     <input asp-for="ProductName" class="form-control" />
+                    <span asp-validation-for="ProductName" class="text-danger"></span>
                 </div>
 
                 <div class="mb-2">
                     <label>Description</label>
                     <textarea asp-for="Description" class="form-control"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
                 </div>
 
                 <div class="mb-2">
                     <label>Price</label>
                     <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
                 </div>
 
                 <div class="mb-2">
                     <label>Stock</label>
                     <input asp-for="Stock" class="form-control" />
+                    <span asp-validation-for="Stock" class="text-danger"></span>
                 </div>
 
                 <div class="mb-2">
@@ -44,6 +49,7 @@
                             <option value="@c.CategoryId">@c.CategoryName</option>
                         }
                     </select>
+                    <span asp-validation-for="Category" class="text-danger"></span>
                 </div>
 
                 <div class="mb-2">
@@ -54,6 +60,7 @@
                             <option value="@b.BrandId">@b.BrandName</option>
                         }
                     </select>
+                    <span asp-validation-for="Brand" class="text-danger"></span>
                 </div>
 
                 <input asp-for="RetailerId" type="hidden" value="1" />
@@ -65,6 +72,10 @@
                 <div class="mb-2">
                     <label>Product Image</label>
                     <input type="file" name="productImage" class="form-control" accept=".jpg,.jpeg,.png" />
+                    <span class="text-danger">
+                        @Html.ValidationMessage("productImage")
+                    </span>
+                    
                 </div>
 
                 <button type="submit" class="btn btn-success mt-3">
@@ -78,3 +89,8 @@
     </div>
 
 </div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

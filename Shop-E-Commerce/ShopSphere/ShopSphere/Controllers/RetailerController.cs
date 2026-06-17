@@ -65,10 +65,31 @@ namespace ShopSphere.Controllers
         [HttpPost]
         public IActionResult Create(Product product, IFormFile productImage)
         {
+            //int userId = GetUserId();
+
+            //if (userId == 0)
+            //    return RedirectToAction("Login", "Account");
+
+            //product.RetailerId = userId;
+            //product.CreatedDate = DateTime.Now;
+            //product.Status = "Pending";
+            //product.IsActive = true;
+
+            //_context.Products.Add(product);
+            //_context.SaveChanges();
+
             int userId = GetUserId();
 
             if (userId == 0)
                 return RedirectToAction("Login", "Account");
+
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Categories = _context.Categories.ToList();
+                ViewBag.Brands = _context.Brands.ToList();
+
+                return View(product);
+            }
 
             product.RetailerId = userId;
             product.CreatedDate = DateTime.Now;
@@ -77,6 +98,8 @@ namespace ShopSphere.Controllers
 
             _context.Products.Add(product);
             _context.SaveChanges();
+
+
 
             if (productImage != null && productImage.Length > 0)
             {
@@ -139,6 +162,14 @@ namespace ShopSphere.Controllers
         {
             int userId = GetUserId();
 
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Categories = _context.Categories.ToList();
+                ViewBag.Brands = _context.Brands.ToList();
+
+                return View(product);
+            }
+
             var existingProduct = _context.Products
                 .FirstOrDefault(p => p.ProductId == product.ProductId
                                   && p.RetailerId == userId);
@@ -146,16 +177,28 @@ namespace ShopSphere.Controllers
             if (existingProduct == null)
                 return NotFound();
 
-            existingProduct.ProductName = product.ProductName;
-            existingProduct.Description = product.Description;
-            existingProduct.Price = product.Price;
-            existingProduct.Stock = product.Stock;
-            existingProduct.CategoryId = product.CategoryId;
-            existingProduct.BrandId = product.BrandId;
+            try
+            {
+                existingProduct.ProductName = product.ProductName;
+                existingProduct.Description = product.Description;
+                existingProduct.Price = product.Price;
+                existingProduct.Stock = product.Stock;
+                existingProduct.CategoryId = product.CategoryId;
+                existingProduct.BrandId = product.BrandId;
 
-            _context.SaveChanges();
+                _context.SaveChanges();
 
-            return RedirectToAction("MyProducts");
+                return RedirectToAction("MyProducts");
+            }
+            catch (Exception)
+            {
+                ModelState.AddModelError("", "An error occurred while updating the product.");
+
+                ViewBag.Categories = _context.Categories.ToList();
+                ViewBag.Brands = _context.Brands.ToList();
+
+                return View(product);
+            }
         }
 
         // DETAILS
